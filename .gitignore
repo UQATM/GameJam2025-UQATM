@@ -1,0 +1,62 @@
+# Fichiers et dossiers générés par Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+Recordings/
+
+# Fichiers de configuration des IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Fichiers de solution et de projet générés automatiquement
+*.csproj
+*.unityproj
+*.sln
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Fichiers de builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Fichiers spécifiques à Maya
+*.ma.swatches
+*.mb.swatches
+__MACOSX/
+
+# Fichiers de sauvegarde et temporaires
+*.bak
+*.tmp
+*.temp
+~$*
+
+# Fichiers de cache de Gradle
+.gradle/
+
+# Fichiers de cache de Visual Studio
+.vs/
