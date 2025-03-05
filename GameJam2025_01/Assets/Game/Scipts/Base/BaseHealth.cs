@@ -60,7 +60,7 @@ public class BaseHealth : MonoBehaviour
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(200);
             }
             else
             {

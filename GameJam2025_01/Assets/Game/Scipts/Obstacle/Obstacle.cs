@@ -42,7 +42,7 @@ public class Obstacle : MonoBehaviour
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(200);
             }
             else
             {
