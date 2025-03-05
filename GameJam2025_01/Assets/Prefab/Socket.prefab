@@ -380,7 +380,7 @@ MonoBehaviour:
   currentTurret: 0
   target: {fileID: 0}
   rotationSpeed: 5
-  projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
+  projectilePrefab: {fileID: 4530461642848681444, guid: 2e3c163d6e560a84c965147e28090498,
     type: 3}
   firePoint: {fileID: 6628056918653241358}
   fireRate: 2
