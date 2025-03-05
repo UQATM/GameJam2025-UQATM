@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class weaponWheelController : MonoBehaviour
+public class weaponWheelControllers : MonoBehaviour
 {
     [Header("Scripts attributing")]
-    public turretBuildManager manager;
+    public turretBuildManagers manager;
 
     [Header("Turret attribute")]
     public int Id;

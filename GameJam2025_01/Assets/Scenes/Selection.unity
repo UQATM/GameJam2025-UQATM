@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurret: 0
-  target: {fileID: 1041712048}
+  target: {fileID: 0}
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
@@ -690,7 +690,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 266500128}
-        m_TargetAssemblyTypeName: weaponWheelController, Assembly-CSharp
+        m_TargetAssemblyTypeName: weaponWheelControllers, Assembly-CSharp
         m_MethodName: turretSelection
         m_Mode: 1
         m_Arguments:
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 423160571}
   Id: 3
-  itemName: turretthree
+  itemName: 
 --- !u!1 &299731733
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,8 +767,8 @@ GameObject:
   - component: {fileID: 299731737}
   - component: {fileID: 299731736}
   - component: {fileID: 299731735}
-  - component: {fileID: 299731740}
   - component: {fileID: 299731739}
+  - component: {fileID: 299731740}
   m_Layer: 5
   m_Name: weaponWheelButton
   m_TagString: Untagged
@@ -862,7 +862,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 299731740}
-        m_TargetAssemblyTypeName: weaponWheelController, Assembly-CSharp
+        m_TargetAssemblyTypeName: weaponWheelControllers, Assembly-CSharp
         m_MethodName: turretSelection
         m_Mode: 1
         m_Arguments:
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 423160571}
   Id: 1
-  itemName: Turret1
+  itemName: 
 --- !u!1 &356041913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1230,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 444770717}
-        m_TargetAssemblyTypeName: weaponWheelController, Assembly-CSharp
+        m_TargetAssemblyTypeName: weaponWheelControllers, Assembly-CSharp
         m_MethodName: turretSelection
         m_Mode: 1
         m_Arguments:
@@ -1293,7 +1293,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 423160571}
   Id: 2
-  itemName: turrettwo
+  itemName: 
+--- !u!1 &560834523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560834527}
+  - component: {fileID: 560834526}
+  - component: {fileID: 560834525}
+  - component: {fileID: 560834524}
+  m_Layer: 19
+  m_Name: enemie (1)
+  m_TagString: enemie
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &560834524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560834523}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &560834525
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560834523}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 94bd95ee13b82f24fa2c98b6337359aa, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &560834526
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560834523}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &560834527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560834523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.2, y: 0.51, z: 6.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610163993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &685742779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1423,8 +1528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 423160571}
-  Id: 4
-  itemName: turretfour
+  Id: 0
+  itemName: 
 --- !u!95 &685742781
 Animator:
   serializedVersion: 5
@@ -1491,8 +1596,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 685742780}
-        m_TargetAssemblyTypeName: weaponWheelController, Assembly-CSharp
-        m_MethodName: turretSelection
+        m_TargetAssemblyTypeName: weaponWheelControllers, Assembly-CSharp
+        m_MethodName: closing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1765,7 +1870,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 733129245}
-        m_TargetAssemblyTypeName: weaponWheelController, Assembly-CSharp
+        m_TargetAssemblyTypeName: weaponWheelControllers, Assembly-CSharp
         m_MethodName: turretSelection
         m_Mode: 1
         m_Arguments:
@@ -1828,7 +1933,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 423160571}
   Id: 4
-  itemName: turretfour
+  itemName: 
+--- !u!1 &961263905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961263909}
+  - component: {fileID: 961263908}
+  - component: {fileID: 961263907}
+  - component: {fileID: 961263906}
+  m_Layer: 19
+  m_Name: enemie (2)
+  m_TagString: enemie
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &961263906
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961263905}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &961263907
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961263905}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 94bd95ee13b82f24fa2c98b6337359aa, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &961263908
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961263905}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &961263909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961263905}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21, y: 0.51, z: 6.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,7 +2530,7 @@ GameObject:
   - component: {fileID: 1041712051}
   - component: {fileID: 1041712050}
   - component: {fileID: 1041712049}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: enemie
   m_TagString: enemie
   m_Icon: {fileID: 0}
@@ -2432,7 +2642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1062249061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2446,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurret: 0
-  target: {fileID: 1041712048}
+  target: {fileID: 0}
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
@@ -2456,7 +2666,7 @@ MonoBehaviour:
   viewAngle: 90
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 524288
 --- !u!65 &1062249062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2844,7 +3054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurret: 1
-  target: {fileID: 1041712048}
+  target: {fileID: 0}
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
@@ -2854,7 +3064,7 @@ MonoBehaviour:
   viewAngle: 90
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 524288
 --- !u!65 &1284075160
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3081,7 +3291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurret: 0
-  target: {fileID: 1041712048}
+  target: {fileID: 0}
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
@@ -3091,7 +3301,7 @@ MonoBehaviour:
   viewAngle: 90
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 524288
 --- !u!65 &1394378819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3212,7 +3422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurret: 2
-  target: {fileID: 1041712048}
+  target: {fileID: 0}
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
@@ -3222,7 +3432,7 @@ MonoBehaviour:
   viewAngle: 90
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 524288
 --- !u!65 &1464377195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3679,4 +3889,6 @@ SceneRoots:
   - {fileID: 1002580252}
   - {fileID: 1483919597}
   - {fileID: 1041712048}
+  - {fileID: 560834527}
+  - {fileID: 961263909}
   - {fileID: 1062249065}
