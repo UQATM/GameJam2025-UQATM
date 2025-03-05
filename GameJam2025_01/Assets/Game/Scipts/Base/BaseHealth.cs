@@ -56,8 +56,20 @@ public class BaseHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            // Instead of instantly destroying the enemy, deal 1 damage to it.
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
+
+            // Also deal 1 damage to the base.
             TakeDamage(1);
-            Destroy(collision.gameObject);
         }
     }
+
 }

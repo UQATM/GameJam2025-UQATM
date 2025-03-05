@@ -8,20 +8,21 @@ public class EnemyHealth : MonoBehaviour
 
     public void SetHealth(int hp)
     {
-        // Correctly assign the provided hp to the enemyHealth and currentEnemyHealth variables
         enemyHealth = hp;
         currentEnemyHealth = hp;
-        // Debug.Log("Enemy health set to: " + hp);
+        //Debug.Log(gameObject.name + " health set to: " + hp);
     }
 
     public void SetWaveSystem(Waves ws)
     {
         waveSystem = ws;
+        //Debug.Log(gameObject.name + " wave system set.");
     }
 
     public void TakeDamage(int damage)
     {
         currentEnemyHealth -= damage;
+        //Debug.Log(gameObject.name + " took " + damage + " damage, current health: " + currentEnemyHealth);
         if (currentEnemyHealth <= 0)
         {
             Die();
@@ -30,8 +31,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        // Debug.Log("Enemy died");
-        waveSystem.OnEnemyKilled();
+        Debug.Log(gameObject.name + " died.");
+        if (waveSystem != null)
+            waveSystem.OnEnemyKilled();
+        else
+            Debug.LogWarning(gameObject.name + " has no wave system reference!");
         Destroy(gameObject);
     }
 }

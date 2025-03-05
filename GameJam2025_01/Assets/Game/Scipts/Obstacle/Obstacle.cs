@@ -36,20 +36,26 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Vérifie si l’objet entrant est un ennemi (tag "Enemy")
         if (other.CompareTag("Enemy"))
         {
-            // 1) Détruire l’ennemi
-            Destroy(other.gameObject);
+            // Instead of destroying the enemy instantly, deal 1 damage to it.
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
 
-            // 2) L’obstacle perd 1 point de vie
+            // The obstacle loses 1 point of life.
             pointsDeVie--;
-
-            // 3) Si l’obstacle n’a plus de points de vie, on le détruit
             if (pointsDeVie <= 0)
             {
                 Destroy(gameObject);
             }
         }
     }
+
 }

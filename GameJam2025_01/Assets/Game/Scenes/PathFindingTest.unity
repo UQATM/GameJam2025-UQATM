@@ -1677,6 +1677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa61bb7f55f3a84d8118b4d14668412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 1
+  currentEnemyHealth: 1
 --- !u!1 &1428175042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,8 +1829,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingEnemies: 5
-  baseEnemyHealth: 1
+  enemyHealth: {fileID: 1413551340}
   enemySpawner: {fileID: 1588400022}
+  initialWaveDelay: 5
 --- !u!1 &1588400017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +1954,9 @@ MonoBehaviour:
   spawnDistance: 4
   spawnInterval: 2
   waveSystem: {fileID: 1511390142}
+  leftWaypoint: {fileID: 38399475}
+  rightWaypoint: {fileID: 1782738375}
+  finalTarget: {fileID: 1662021854}
 --- !u!1 &1606295041
 GameObject:
   m_ObjectHideFlags: 0
