@@ -43,6 +43,12 @@ public class BaseHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
+
+        if (currentHealth <= damage)
+        {
+            Quit GameManager = gameObject.GetComponent<Quit>();
+            GameManager.GameOver();
+        }
     }
 
     void UpdateHealthBar()
