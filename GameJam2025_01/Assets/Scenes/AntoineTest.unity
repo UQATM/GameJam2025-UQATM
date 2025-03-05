@@ -574,7 +574,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.640813, y: 8.640813, z: 8.640813}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 423679139}
   m_Father: {fileID: 201614506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &169060545
@@ -586,7 +587,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 169060540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30071ffa918d8b34c9478b3b7fc96e9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 819d9253e987f514a9603d00ef9a3474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camTop: {fileID: 387452953}
@@ -597,6 +598,9 @@ MonoBehaviour:
   - {fileID: 22536262}
   playerManager: {fileID: 201614505}
   tank: {fileID: 732887363}
+  canonEnd: {fileID: 423679139}
+  p_Missile: {fileID: 2491958674698711603, guid: 50c3d24fece361e479a368a0f88de864,
+    type: 3}
 --- !u!1 &189897764
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +772,8 @@ MonoBehaviour:
   agrandir: 32
   tirPrincipalTank: 323
   tirSecondaireTank: 324
+  mortarCanon: 323
+  switchFactoryMode: 32
 --- !u!4 &201614506
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,6 +1065,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &423679138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 423679139}
+  m_Layer: 0
+  m_Name: EndMortarCanon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423679139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423679138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5775, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 169060544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &685208538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &732887364
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class GestionnaireJoueur : MonoBehaviour
     [SerializeField] KeyCode agrandir; //Contrôler tank
     [SerializeField] KeyCode tirPrincipalTank;
     [SerializeField] KeyCode tirSecondaireTank;
+    [SerializeField] KeyCode mortarCanon;
+    [SerializeField] KeyCode switchFactoryMode;
 
     public struct Keybinds
     {
@@ -15,6 +17,8 @@ public class GestionnaireJoueur : MonoBehaviour
         public KeyCode Agrandir;
         public KeyCode TirPrincipalTank;
         public KeyCode TirSecondaireTank;
+        public KeyCode MortarCanon;
+        public KeyCode SwitchFactoryMode;
     }
 
     public enum State
@@ -50,7 +54,15 @@ public class GestionnaireJoueur : MonoBehaviour
 
     public Keybinds getKeybinds()
     {
-        return new Keybinds { ChoisirCadran = choisirCadran, Reduire = reduire, Agrandir = agrandir, TirPrincipalTank = tirPrincipalTank, TirSecondaireTank = tirSecondaireTank };
+        return new Keybinds {
+            ChoisirCadran = choisirCadran,
+            Reduire = reduire, 
+            Agrandir = agrandir, 
+            TirPrincipalTank = tirPrincipalTank, 
+            TirSecondaireTank = tirSecondaireTank,
+            MortarCanon = mortarCanon,
+            SwitchFactoryMode = switchFactoryMode
+        };
     }
 
 }
