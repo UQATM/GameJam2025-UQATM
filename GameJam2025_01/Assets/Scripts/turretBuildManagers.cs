@@ -16,6 +16,7 @@ public class turretBuildManagers : MonoBehaviour
 
     [Header("Scripts attributing")]
     public economyBase economyScript;
+
     // Start is called before the first frame update
     void Start()
     {

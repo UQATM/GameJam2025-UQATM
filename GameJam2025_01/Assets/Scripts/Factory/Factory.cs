@@ -8,7 +8,7 @@ public class Factory : MonoBehaviour
     [SerializeField] GameObject tank;
     [SerializeField] Transform canonEnd;
     [SerializeField] GameObject p_Missile;
-
+    public two twoScript;
     GameObject camCadrantActif;
     GestionnaireJoueur.Keybinds keybinds;
 
@@ -60,7 +60,9 @@ public class Factory : MonoBehaviour
                                         camTop.gameObject.SetActive(false);
                                         camCadrant.SetActive(true);
                                         camCadrantActif = camCadrant;
+                                        twoScript.SetQuadrantCamera(camCadrant);
                                         playerManager.setActiveState(GestionnaireJoueur.State.towerDefence);
+
                                     }
                                 }
                             }
