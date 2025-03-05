@@ -5,14 +5,15 @@ public class ChoisirCadrant : MonoBehaviour
     [SerializeField] Camera camTop;
     [SerializeField] GameObject[] cadrants;
     [SerializeField] GestionnaireJoueur playerManager;
-    GameObject activeCam;
+    [SerializeField] GameObject tank;
 
-
+    GameObject camCadrantActif;
+    GestionnaireJoueur.Keybinds keybinds;
 
     // Start is called before the first frame update
     void Start()
     {
-        activeCam = camTop.gameObject;
+        keybinds = playerManager.getKeybinds();
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class ChoisirCadrant : MonoBehaviour
         switch (playerManager.getActiveState())
         {
             case GestionnaireJoueur.State.factory:
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(keybinds.ChoisirCadran))
                 {
                     Ray ray = camTop.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
@@ -38,7 +39,7 @@ public class ChoisirCadrant : MonoBehaviour
                             {
                                 camTop.gameObject.SetActive(false);
                                 camCadrant.SetActive(true);
-                                activeCam = camCadrant;
+                                camCadrantActif = camCadrant;
                                 playerManager.setActiveState(GestionnaireJoueur.State.towerDefence);
                             }
                         }
@@ -46,21 +47,27 @@ public class ChoisirCadrant : MonoBehaviour
                 }
                 break;
             case GestionnaireJoueur.State.towerDefence:
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(keybinds.Reduire))
                 {
                     playerManager.setActiveState(GestionnaireJoueur.State.factory);
-                    activeCam.SetActive(false);
+                    camCadrantActif.SetActive(false);
                     camTop.gameObject.SetActive(true);
-                    activeCam = camTop.gameObject;
+                }
+
+                if (Input.GetKeyDown(keybinds.Agrandir))
+                {
+                    playerManager.setActiveState(GestionnaireJoueur.State.tank);
+                    tank.SetActive(true);
+                    camCadrantActif.SetActive(false);
+
                 }
                 break;
             case GestionnaireJoueur.State.tank:
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(keybinds.Reduire))
                 {
                     playerManager.setActiveState(GestionnaireJoueur.State.towerDefence);
-                    activeCam.SetActive(false);
-                    camTop.gameObject.SetActive(true);
-                    activeCam = camTop.gameObject;
+                    camCadrantActif.SetActive(true);
+                    tank.SetActive(false);
                 }
                 break;
         }
