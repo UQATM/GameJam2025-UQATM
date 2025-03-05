@@ -1,18 +1,19 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Waves : MonoBehaviour
 {
-    [SerializeField] private int startingEnemies = 5;
+    [SerializeField] private int startingEnemies = 5; // Enemies PER SPAWNER
     [SerializeField] private EnemyHealth enemyHealth;
-    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private List<EnemySpawner> enemySpawners; // All 4 spawners
     [SerializeField] private float initialWaveDelay = 5f;
     [SerializeField] private TextMeshProUGUI waveCounterText;
 
-    private int currentWave = 0; // Start at 0 to correctly handle the first increment
-    private int enemiesAlive;
+    private int currentWave = 0;
+    private int totalEnemiesAlive; // Total enemies across ALL spawners
     private bool waveEnded = true;
-    private int currentEnemyCount;
+    private int currentEnemyCount; // Enemies PER SPAWNER
     private int currentEnemyHealth;
 
     private void Start()
@@ -26,33 +27,40 @@ public class Waves : MonoBehaviour
         if (!waveEnded) return;
 
         waveEnded = false;
-        currentWave++; 
+        currentWave++;
 
+        // Calculate enemies per spawner
         currentEnemyCount = startingEnemies + (currentWave - 1);
 
-        int enemyHealthToUse = currentEnemyHealth;
+        // Every 5 waves, add +1 enemy per spawner and increase health
         if (currentWave % 5 == 0)
         {
             currentEnemyCount++;
             currentEnemyHealth++;
-            enemyHealthToUse = currentEnemyHealth;
         }
 
-        enemiesAlive = currentEnemyCount;
-        Debug.Log($"Starting Wave {currentWave} with {currentEnemyCount} enemies.");
-        enemySpawner.SpawnWave(currentEnemyCount, enemyHealthToUse);
-        UpdateWaveCounter(); 
+        // Spawn enemies on all spawners
+        foreach (EnemySpawner spawner in enemySpawners)
+        {
+            spawner.SpawnWave(currentEnemyCount, currentEnemyHealth);
+        }
+
+        // Track total enemies (enemies per spawner × number of spawners)
+        totalEnemiesAlive = currentEnemyCount * enemySpawners.Count;
+        UpdateWaveCounter();
     }
 
     public void OnEnemyKilled()
     {
-        enemiesAlive--;
-        Debug.Log($"Enemy killed. Remaining: {enemiesAlive}");
+        totalEnemiesAlive--;
 
-        if (enemiesAlive <= 0)
+        if (totalEnemiesAlive <= 0)
         {
             waveEnded = true;
-            enemySpawner.OnWaveEnded();
+            foreach (EnemySpawner spawner in enemySpawners)
+            {
+                spawner.OnWaveEnded();
+            }
         }
     }
 
