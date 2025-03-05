@@ -1,46 +1,66 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public float spawnInterval = 2f;
-    public float spawnDistance = 2f; // Distance in front of the spawner to spawn the enemy
+    [SerializeField] private GameObject enemyPrefab;  // Prefab for the enemy
+    [SerializeField] private float spawnDistance = 2f;   // Distance from the spawner to spawn enemies
+    [SerializeField] private float spawnInterval = 1f;   // Time interval between spawning each enemy
+    [SerializeField] private Waves waveSystem;           // Reference to the Waves script
 
-    // Waypoints and final destination assigned in the Inspector
-    public Transform leftWaypoint;
-    public Transform rightWaypoint;
-    public Transform finalTarget;
+    [SerializeField] private Transform leftWaypoint;     // Left waypoint for enemy pathing
+    [SerializeField] private Transform rightWaypoint;    // Right waypoint for enemy pathing
+    [SerializeField] private Transform finalTarget;      // Final destination for enemy pathing
 
-    private bool spawnLeft = true; // Toggle to alternate spawns
+    private bool spawnLeft = true;                        // Toggle to alternate left/right waypoint assignment
 
-    void Start()
+    public void SpawnWave(int enemyCount, int enemyHealth)
     {
-        // Spawn enemies repeatedly
-        InvokeRepeating(nameof(SpawnEnemy), 0f, spawnInterval);
-        //SpawnEnemy();
-        //SpawnEnemy();
+        // Debug.Log("Spawning wave with " + enemyCount + " enemies.");
+        StartCoroutine(SpawnWaveCoroutine(enemyCount, enemyHealth));
     }
 
-    void SpawnEnemy()
+    private IEnumerator SpawnWaveCoroutine(int enemyCount, int enemyHealth)
     {
-        // Calculate a spawn position in front of the spawner
+        for (int i = 0; i < enemyCount; i++)
+        {
+            SpawnEnemy(enemyHealth);
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
+    private void SpawnEnemy(int hp)
+    {
         Vector3 spawnPos = transform.position + transform.forward * spawnDistance;
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPos, transform.rotation);
-
-        // Get the MultiPathEnemy script on the spawned enemy
-        EnemiesPathFinding enemyScript = newEnemy.GetComponent<EnemiesPathFinding>();
-        if (enemyScript != null)
+        // Debug.Log("Spawned enemy: " + newEnemy.name);
+        EnemyHealth enemyHealthScript = newEnemy.GetComponent<EnemyHealth>();
+        if (enemyHealthScript != null)
         {
-            // Alternate: assign the left waypoint on one spawn and the right on the next
-            enemyScript.midWaypoint = spawnLeft ? leftWaypoint : rightWaypoint;
-            enemyScript.finalTarget = finalTarget;
+            enemyHealthScript.SetHealth(hp);
+            enemyHealthScript.SetWaveSystem(waveSystem);
+        }
 
-            // Toggle for next spawn
+        // Reintroduce left/right waypoint assignment using the enemy's pathfinding script
+        EnemiesPathFinding enemyPathScript = newEnemy.GetComponent<EnemiesPathFinding>();
+        if (enemyPathScript != null)
+        {
+            enemyPathScript.midWaypoint = spawnLeft ? leftWaypoint : rightWaypoint;
+            enemyPathScript.finalTarget = finalTarget;
             spawnLeft = !spawnLeft;
         }
-        else
-        {
-            Debug.LogWarning("Enemy prefab is missing the MultiPathEnemy script!");
-        }
+    }
+
+    public void OnWaveEnded()
+    {
+        // Debug.Log("Wave ended. Waiting 5 seconds before starting next wave.");
+        StartCoroutine(WaveEndedCoroutine());
+    }
+
+    private IEnumerator WaveEndedCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        // Debug.Log("Starting next wave...");
+        waveSystem.StartNextWave();
     }
 }
