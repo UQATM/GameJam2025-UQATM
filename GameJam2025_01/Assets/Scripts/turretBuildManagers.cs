@@ -17,6 +17,10 @@ public class turretBuildManagers : MonoBehaviour
     [Header("Scripts attributing")]
     public economyBase economyScript;
 
+    [Header("Audio attributing")]
+    public AudioSource sourceAudio;
+    public AudioClip deniedClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,8 @@ public class turretBuildManagers : MonoBehaviour
             {
                 if(!economyScript.checkPrice(40))
                 {
+                    sourceAudio.clip = deniedClip;
+                    sourceAudio.Play();
                     return;
                 }
             }
@@ -44,11 +50,14 @@ public class turretBuildManagers : MonoBehaviour
             {
                 if (!economyScript.checkPrice(selectedSocket.transform.GetChild(turretID - 1).GetComponent<turretScript>().price))
                 {
+                    sourceAudio.clip = deniedClip;
+                    sourceAudio.Play();
                     return;
                 }
             }
             Transform turret = selectedSocket.transform.GetChild(turretID - 1); // Get the child (0-based index)
             turret.gameObject.SetActive(true);
+            selectedSocket.GetComponent<AudioSource>().Play();
             if(turretID == 4)
             {
                 economyScript.numberOfTower++;
