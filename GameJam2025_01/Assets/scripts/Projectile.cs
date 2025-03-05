@@ -19,15 +19,25 @@ public class Projectile : MonoBehaviour
     [Header("Blast sphere")]
     private float radius;
     public float maxDistance = 10f;
+    public int damage;
 
     [Header("Hit enemie")]
     public LayerMask layerMask;
 
     public projectileType currentProjectile;
 
-    public void Seek(Transform _target)
+    public void Seek(Transform _target, int damageSet)
     {
         target = _target;
+        damage = damageSet;
+    }
+    private void Start()
+    {
+        if (target != null)
+        {
+            Vector3 direction = target.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
     }
 
     void Update()
@@ -42,6 +52,17 @@ public class Projectile : MonoBehaviour
         float distanceThisFrame = speed * Time.deltaTime;
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+
+        float singleStep = speed * Time.deltaTime;
+
+        // Rotate the forward vector towards the target direction by one step
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, direction, singleStep, 0.0f);
+
+        // Draw a ray pointing at our target in
+        Debug.DrawRay(transform.position, newDirection, Color.red);
+
+        // Calculate a rotation a step closer to the target and applies rotation to this object
+        transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
     void HitTarget()

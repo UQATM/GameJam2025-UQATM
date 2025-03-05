@@ -22,6 +22,7 @@ public class turretScript : MonoBehaviour
     [Header("Where it fire from and speed")]
     public Transform firePoint; // The point from where the projectile will be fired
     public float fireRate = 1f; // Time between shots
+    public int damage;
 
     [Header("Slow turret setting field of fire")]
     public float viewRadius = 10f;
@@ -45,6 +46,10 @@ public class turretScript : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) > viewRadius)
         {
             target = findTarget();
+        }
+        if (target == null)
+        {
+            return;
         }
 
         // Rotate turret to face the target
@@ -110,7 +115,7 @@ public class turretScript : MonoBehaviour
         projectile.currentProjectile = projectileType.Rocket;
         if (projectile != null)
         {
-            projectile.Seek(target);
+            projectile.Seek(target, damage);
         }
     }
 
