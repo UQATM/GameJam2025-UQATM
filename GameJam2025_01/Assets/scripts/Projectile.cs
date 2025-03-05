@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     private Transform target;
 
     [Header("Blast sphere")]
-    private float radius;
+    public float radius;
     public float maxDistance = 10f;
     public int damage;
 
@@ -65,12 +65,12 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
-    void HitTarget()
+    void HitTarget(GameObject enemy)
     {
         switch (currentProjectile)
         {
             case projectileType.smallProjectile:
-                FireSmallProjectile();
+                FireSmallProjectile(enemy);
                 break;
             case projectileType.ExplosiveProjectile:
                 FireExplosiveProjectile();
@@ -85,12 +85,14 @@ public class Projectile : MonoBehaviour
                 Debug.LogWarning("Unknown projectile type!");
                 break;
         }
+        Debug.Log("should destroy");
         Destroy(gameObject);
     }
 
     private void FireRocket()
     {
-        float blastRadius = 10f; // Adjust as needed
+        Debug.Log("rocket blast");
+        float blastRadius = radius; // Adjust as needed
         Vector3 explosionPosition = transform.position;
 
         // Find all colliders in the explosion radius
@@ -101,7 +103,8 @@ public class Projectile : MonoBehaviour
 
             foreach (Collider hit in hitColliders)
             {
-                //enemie lose hp logic
+                Debug.Log(hit.gameObject.name);
+                hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             }
         }
         else
@@ -121,16 +124,18 @@ public class Projectile : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    private void FireSmallProjectile()
+    private void FireSmallProjectile(GameObject enemy)
     {
+        Debug.Log("meow");
+        enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
         //enemie lose hp logic
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "enemie")
+        if (other.gameObject.tag == "Enemy")
         {
-            HitTarget();
+            HitTarget(other.gameObject);
         }
     }
 }
