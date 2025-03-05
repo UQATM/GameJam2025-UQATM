@@ -9,10 +9,13 @@ public class sockets : MonoBehaviour
 
     [Header("Turret settings")]
     public bool alreadyBuilt;
+
+    private GameObject gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.FindWithTag("GameController");
+        turretBuildScript = gameManager.GetComponent<turretBuildManagers>();
     }
 
     // Update is called once per frame
