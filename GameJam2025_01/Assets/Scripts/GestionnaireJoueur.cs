@@ -5,12 +5,16 @@ public class GestionnaireJoueur : MonoBehaviour
     [SerializeField] KeyCode choisirCadran;
     [SerializeField] KeyCode reduire; //Retour au niveau supérieur
     [SerializeField] KeyCode agrandir; //Contrôler tank
+    [SerializeField] KeyCode tirPrincipalTank;
+    [SerializeField] KeyCode tirSecondaireTank;
 
     public struct Keybinds
     {
         public KeyCode ChoisirCadran;
         public KeyCode Reduire;
         public KeyCode Agrandir;
+        public KeyCode TirPrincipalTank;
+        public KeyCode TirSecondaireTank;
     }
 
     public enum State
@@ -46,7 +50,7 @@ public class GestionnaireJoueur : MonoBehaviour
 
     public Keybinds getKeybinds()
     {
-        return new Keybinds { ChoisirCadran = choisirCadran, Reduire = reduire, Agrandir = agrandir };
+        return new Keybinds { ChoisirCadran = choisirCadran, Reduire = reduire, Agrandir = agrandir, TirPrincipalTank = tirPrincipalTank, TirSecondaireTank = tirSecondaireTank };
     }
 
 }

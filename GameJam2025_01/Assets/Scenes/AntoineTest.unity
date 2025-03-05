@@ -766,6 +766,8 @@ MonoBehaviour:
   choisirCadran: 323
   reduire: 113
   agrandir: 32
+  tirPrincipalTank: 323
+  tirSecondaireTank: 324
 --- !u!4 &201614506
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,6 +1361,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774302230}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &813903896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 813903897}
+  m_Layer: 0
+  m_Name: EndCanon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &813903897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813903896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.131, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2094048314}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &823055897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2180,7 @@ GameObject:
   - component: {fileID: 2094048317}
   - component: {fileID: 2094048316}
   - component: {fileID: 2094048315}
+  - component: {fileID: 2094048318}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -2166,7 +2200,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.007, z: 0.5}
   m_LocalScale: {x: 0.11999999, y: 0.34334713, z: 0.11999999}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 813903897}
   m_Father: {fileID: 1401052088}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!136 &2094048315
@@ -2242,6 +2277,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094048313}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2094048318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094048313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81482e8b398866c4aa0191d184e343c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletC: {fileID: 674322056292159230, guid: e18e88918ca3eb9429b08b174eb9f5ac, type: 3}
+  _bulletM: {fileID: 674322056292159230, guid: 72bd0b0c6592fb64d8ee4e57e261893b, type: 3}
+  _cannonEnd: {fileID: 813903896}
+  cooldownTimeC: 10
+  cooldownTimeM: 3
+  ammoM: 50
+  playerManager: {fileID: 201614505}
+  isCooldownC: 0
+  isCooldownM: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -13,9 +13,6 @@ public class TankCannon : MonoBehaviour
     private GameObject _cannonEnd;
 
     [SerializeField]
-    private Camera cam;
-
-    [SerializeField]
     private int cooldownTimeC = 10;
 
     [SerializeField]
@@ -24,46 +21,45 @@ public class TankCannon : MonoBehaviour
     [SerializeField]
     private int ammoM = 50;
 
+    [SerializeField] GestionnaireJoueur playerManager;
+
     public bool isCooldownC = false;
 
     public bool isCooldownM = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !isCooldownC)
+        if (playerManager.getActiveState() == GestionnaireJoueur.State.tank)
         {
-            GameObject b = Instantiate(_bulletC, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
-            b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
-            isCooldownC = true;
-            if (isCooldownC == true)
+            if (Input.GetKeyDown(playerManager.getKeybinds().TirSecondaireTank) && !isCooldownC)
             {
-                StartCoroutine(CoolDownCannon());
+                GameObject b = Instantiate(_bulletC, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
+                b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * 25f, ForceMode.Impulse);
+                isCooldownC = true;
+                if (isCooldownC == true)
+                {
+                    StartCoroutine(CoolDownCannon());
+                }
+                Destroy(b, 10f);
             }
-            Destroy(b, 10f);
+
+            if (Input.GetKeyDown(playerManager.getKeybinds().TirPrincipalTank) && !isCooldownM)
+            {
+                GameObject b = Instantiate(_bulletM, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
+                b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * 25f, ForceMode.Impulse);
+                ammoM--;
+                if (ammoM <= 0)
+                {
+                    isCooldownM = true;
+                }
+                if (isCooldownM == true)
+                {
+                    StartCoroutine(CoolDownMachineGun());
+                }
+                Destroy(b, 10f);
+            }
+
         }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCooldownM)
-        {
-            GameObject b = Instantiate(_bulletM, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
-            b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
-            ammoM--;
-            if (ammoM <= 0)
-            {
-                isCooldownM = true;
-            }
-            if (isCooldownM == true)
-            {
-                StartCoroutine(CoolDownMachineGun());
-            }
-            Destroy(b, 10f);
-        }
-
-        Vector3 mouse = Input.mousePosition;
-        mouse.x = Mathf.Clamp(mouse.x, 0, Screen.width);
-        mouse.y = Mathf.Clamp(mouse.y, 25, (Screen.height - 250));
-        Vector3 mouseWorld = cam.ScreenToWorldPoint(new Vector3(mouse.x, mouse.y, _cannonEnd.transform.position.y + 90));
-
-        transform.LookAt(mouseWorld);
     }
 
     public IEnumerator CoolDownCannon()
