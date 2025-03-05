@@ -3,10 +3,10 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private float spawnDistance = 2f;
-    [SerializeField] private float spawnInterval = 1f; // Interval between spawning each enemy (if you want this to be 5 seconds, set to 5f)
-    [SerializeField] private Waves waveSystem;
+    [SerializeField] private GameObject enemyPrefab;                    // Prefab of the enemy to spawn
+    [SerializeField] private float spawnDistance = 2f;                     // Distance from the spawner at which to spawn enemies
+    [SerializeField] private float spawnInterval = 1f;                     // Time interval between individual enemy spawns
+    [SerializeField] private Waves waveSystem;                           // Reference to the Waves script
 
     public void SpawnWave(int enemyCount, int enemyHealth)
     {
@@ -41,7 +41,8 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator WaveEndedCoroutine()
     {
-        yield return new WaitForSeconds(5f); // Wait 5 seconds after the wave ends before starting the next wave
+        // Wait 5 seconds after the wave ends before starting the next wave
+        yield return new WaitForSeconds(5f);
         waveSystem.StartNextWave();
     }
 }

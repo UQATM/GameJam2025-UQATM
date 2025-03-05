@@ -6,10 +6,12 @@ public class EnemyHealth : MonoBehaviour
     public int currentEnemyHealth; // Current health for this enemy
     private Waves waveSystem;
 
-    public void SetHealth(int enemyHealth)
+    public void SetHealth(int hp)
     {
-        enemyHealth = enemyHealth;
-        currentEnemyHealth = enemyHealth;
+        // Correctly assign the provided hp to the enemyHealth and currentEnemyHealth variables
+        enemyHealth = hp;
+        currentEnemyHealth = hp;
+        // Debug.Log("Enemy health set to: " + hp);
     }
 
     public void SetWaveSystem(Waves ws)
@@ -28,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        // Debug.Log("Enemy died");
         waveSystem.OnEnemyKilled();
         Destroy(gameObject);
     }
