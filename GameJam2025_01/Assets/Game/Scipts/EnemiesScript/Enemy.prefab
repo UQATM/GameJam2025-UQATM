@@ -170,8 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b4fdcf3c395aa4190b97ea9ec973f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midWaypoint: {fileID: 0}
-  finalTarget: {fileID: 0}
 --- !u!114 &-1567832203434838977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +182,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa61bb7f55f3a84d8118b4d14668412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 10
+  currentEnemyHealth: 0
