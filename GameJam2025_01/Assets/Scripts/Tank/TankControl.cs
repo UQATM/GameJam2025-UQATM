@@ -8,6 +8,7 @@ public class TankControl : MonoBehaviour
     [SerializeField] float deceleration;
     [SerializeField] Transform head;
     [SerializeField] Transform canon;
+    [SerializeField] Transform machineGun;
     [SerializeField] float sensibilite;
     Transform root;
     float input;
@@ -61,6 +62,7 @@ public class TankControl : MonoBehaviour
 
         head.localRotation = Quaternion.Euler(0, -rotationTeteX, 0f);
         canon.localRotation = Quaternion.Euler(rotationTeteY, 0f, 0f);
+        machineGun.localRotation = Quaternion.Euler(rotationTeteY, 0f, 0f);
     }
 
     float DeplacerTank(float _current, float _cible, float _acceleration)
