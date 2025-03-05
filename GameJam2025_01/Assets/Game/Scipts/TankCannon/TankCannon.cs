@@ -12,8 +12,9 @@ public class TankCannon : MonoBehaviour
     [SerializeField]
     private GameObject _bulletG;
 
-    [SerializeField]
-    private GameObject _cannonEnd;
+    [SerializeField] GameObject cCannonEnd;
+    [SerializeField] GameObject mCannonEnd;
+    [SerializeField] GameObject gCannonEnd;
 
     GameObject _reticle;
 
@@ -43,8 +44,8 @@ public class TankCannon : MonoBehaviour
         {
             if (Input.GetKeyDown(playerManager.getKeybinds().TirSecondaireTank) && !isCooldownC)
             {
-                GameObject b = Instantiate(_bulletC, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
-                b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * 25f, ForceMode.Impulse);
+                GameObject b = Instantiate(_bulletC, cCannonEnd.transform.position, cCannonEnd.transform.rotation);
+                b.GetComponent<Rigidbody>().AddForce(cCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
                 isCooldownC = true;
                 if (isCooldownC == true)
                 {
@@ -55,8 +56,8 @@ public class TankCannon : MonoBehaviour
 
             if (Input.GetKeyDown(playerManager.getKeybinds().TirPrincipalTank) && !isCooldownM)
             {
-                GameObject b = Instantiate(_bulletM, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
-                b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * 25f, ForceMode.Impulse);
+                GameObject b = Instantiate(_bulletM, mCannonEnd.transform.position, mCannonEnd.transform.rotation);
+                b.GetComponent<Rigidbody>().AddForce(mCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
                 ammoM--;
                 if (ammoM <= 0)
                 {
@@ -71,8 +72,8 @@ public class TankCannon : MonoBehaviour
 
             if(Input.GetKeyDown(playerManager.getKeybinds().ReparationTank) && !isCooldownG)
             {
-                GameObject g = Instantiate(_bulletG, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
-                g.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * 25f, ForceMode.Impulse);
+                GameObject g = Instantiate(_bulletG, gCannonEnd.transform.position, gCannonEnd.transform.rotation);
+                g.GetComponent<Rigidbody>().AddForce(gCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
                 isCooldownG = true;
                 if(isCooldownG == true)
                 {
