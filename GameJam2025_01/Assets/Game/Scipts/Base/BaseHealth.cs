@@ -22,7 +22,6 @@ public class BaseHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    // Programmatically creates a gradient: red for critical (0.0), yellow for medium (0.5), green for full health (1.0).
     void CreateHealthGradient()
     {
         healthGradient = new Gradient();
@@ -39,7 +38,6 @@ public class BaseHealth : MonoBehaviour
         healthGradient.SetKeys(colorKeys, alphaKeys);
     }
 
-    // Call this method to reduce health by a specific amount.
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -47,7 +45,6 @@ public class BaseHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    // Updates the health bar fill and color based on current health percentage.
     void UpdateHealthBar()
     {
         float healthPercent = (float)currentHealth / maxHealth;
@@ -55,7 +52,6 @@ public class BaseHealth : MonoBehaviour
         healthBarFill.color = healthGradient.Evaluate(healthPercent);
     }
 
-    // When an enemy collides with the base, reduce health and destroy the enemy.
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

@@ -1665,6 +1665,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3696055806734825350}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1413551340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413551332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa61bb7f55f3a84d8118b4d14668412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1428175042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1782,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 738303215}
   m_LocalEulerAnglesHint: {x: 0, y: 32.491, z: 0}
+--- !u!1 &1511390140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511390141}
+  - component: {fileID: 1511390142}
+  m_Layer: 0
+  m_Name: WaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511390141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511390140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.92721987, y: 12.181205, z: -23.58243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511390142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511390140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35850f9cb70292d41812d50af72c7a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingEnemies: 5
+  baseEnemyHealth: 1
+  enemySpawner: {fileID: 1588400022}
 --- !u!1 &1588400017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,11 +1948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1413551332}
-  spawnInterval: 2
   spawnDistance: 4
-  leftWaypoint: {fileID: 38399475}
-  rightWaypoint: {fileID: 1782738375}
-  finalTarget: {fileID: 1662021854}
+  spawnInterval: 2
+  waveSystem: {fileID: 1511390142}
 --- !u!1 &1606295041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 0
   healthBarFill: {fileID: 1887909544}
   damage: 1
 --- !u!1 &1782738371
@@ -2496,7 +2554,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8912650479594373785, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1413551340}
   m_SourcePrefab: {fileID: 100100000, guid: 72aa8355de0c922469ed4b7c1c5d99b3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2513,3 +2575,4 @@ SceneRoots:
   - {fileID: 165213620}
   - {fileID: 313837709}
   - {fileID: 339429508}
+  - {fileID: 1511390141}

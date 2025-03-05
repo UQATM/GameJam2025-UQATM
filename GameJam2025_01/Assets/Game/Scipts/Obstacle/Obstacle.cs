@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour
         switch (typeObstacle)
         {
             case TypeObstacle.Bois:
-                pointsDeVie = 5;
+                pointsDeVie = 25;
                 break;
             case TypeObstacle.Pierre:
                 pointsDeVie = 10;
