@@ -6,13 +6,13 @@ public class ChoisirCadrant : MonoBehaviour
     [SerializeField] GameObject[] cadrants;
     [SerializeField] GestionnaireJoueur playerManager;
     GameObject activeCam;
-
-
+    GestionnaireJoueur.Keybinds keybinds;
 
     // Start is called before the first frame update
     void Start()
     {
         activeCam = camTop.gameObject;
+        keybinds = playerManager.getKeybinds();
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class ChoisirCadrant : MonoBehaviour
         switch (playerManager.getActiveState())
         {
             case GestionnaireJoueur.State.factory:
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(keybinds.ChoisirCadran))
                 {
                     Ray ray = camTop.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
@@ -46,7 +46,7 @@ public class ChoisirCadrant : MonoBehaviour
                 }
                 break;
             case GestionnaireJoueur.State.towerDefence:
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(keybinds.Reduire))
                 {
                     playerManager.setActiveState(GestionnaireJoueur.State.factory);
                     activeCam.SetActive(false);
@@ -55,7 +55,7 @@ public class ChoisirCadrant : MonoBehaviour
                 }
                 break;
             case GestionnaireJoueur.State.tank:
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(keybinds.Reduire))
                 {
                     playerManager.setActiveState(GestionnaireJoueur.State.towerDefence);
                     activeCam.SetActive(false);
