@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Cannon
   - MachineGun
+  - Obstacle
+  - Base
   layers:
   - Default
   - TransparentFX

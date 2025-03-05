@@ -1,22 +1,26 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;  // Prefab for the enemy
-    [SerializeField] private float spawnDistance = 2f;   // Distance from the spawner to spawn enemies
-    [SerializeField] private float spawnInterval = 1f;   // Time interval between spawning each enemy
-    [SerializeField] private Waves waveSystem;           // Reference to the Waves script
+    [Header("Spawn Settings")]
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private float spawnDistance = 2f;
+    [SerializeField] private float spawnInterval = 1f;
 
-    [SerializeField] private Transform leftWaypoint;     // Left waypoint for enemy pathing
-    [SerializeField] private Transform rightWaypoint;    // Right waypoint for enemy pathing
-    [SerializeField] private Transform finalTarget;      // Final destination for enemy pathing
+    [Header("Path Options")]
+    [SerializeField] private bool useRoundaboutPath = false;
+    [SerializeField] private Transform leftWaypoint;
+    [SerializeField] private Transform rightWaypoint;
+    [SerializeField] private Transform round1Waypoint;
+    [SerializeField] private Transform round2Waypoint;
+    [SerializeField] private Transform finalTarget;
 
-    private bool spawnLeft = true;                        // Toggle to alternate left/right waypoint assignment
+    private bool spawnLeft = true;
 
     public void SpawnWave(int enemyCount, int enemyHealth)
     {
-        // Debug.Log("Spawning wave with " + enemyCount + " enemies.");
         StartCoroutine(SpawnWaveCoroutine(enemyCount, enemyHealth));
     }
 
@@ -33,34 +37,41 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 spawnPos = transform.position + transform.forward * spawnDistance;
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPos, transform.rotation);
-        // Debug.Log("Spawned enemy: " + newEnemy.name);
+
+        // Health setup
         EnemyHealth enemyHealthScript = newEnemy.GetComponent<EnemyHealth>();
         if (enemyHealthScript != null)
         {
             enemyHealthScript.SetHealth(hp);
-            enemyHealthScript.SetWaveSystem(waveSystem);
+            enemyHealthScript.SetWaveSystem(FindObjectOfType<Waves>());
         }
 
-        // Reintroduce left/right waypoint assignment using the enemy's pathfinding script
+        // Path configuration
         EnemiesPathFinding enemyPathScript = newEnemy.GetComponent<EnemiesPathFinding>();
         if (enemyPathScript != null)
         {
-            enemyPathScript.midWaypoint = spawnLeft ? leftWaypoint : rightWaypoint;
-            enemyPathScript.finalTarget = finalTarget;
-            spawnLeft = !spawnLeft;
+            if (useRoundaboutPath)
+            {
+                // Roundabout path sequence
+                List<Transform> roundaboutPath = new List<Transform>
+                {
+                    round1Waypoint,
+                    round2Waypoint,
+                    finalTarget
+                };
+                enemyPathScript.SetPath(roundaboutPath);
+            }
+            else
+            {
+                // Original left/right alternating path
+                List<Transform> alternatePath = new List<Transform>
+                {
+                    spawnLeft ? leftWaypoint : rightWaypoint,
+                    finalTarget
+                };
+                enemyPathScript.SetPath(alternatePath);
+                spawnLeft = !spawnLeft;
+            }
         }
-    }
-
-    public void OnWaveEnded()
-    {
-        // Debug.Log("Wave ended. Waiting 5 seconds before starting next wave.");
-        StartCoroutine(WaveEndedCoroutine());
-    }
-
-    private IEnumerator WaveEndedCoroutine()
-    {
-        yield return new WaitForSeconds(5f);
-        // Debug.Log("Starting next wave...");
-        waveSystem.StartNextWave();
     }
 }
