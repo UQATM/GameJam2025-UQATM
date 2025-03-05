@@ -13,8 +13,9 @@ public class weaponWheelControllers : MonoBehaviour
     public int Id;
     private Animator anim;
     public string itemName;
+    public TextMeshProUGUI UIName;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class weaponWheelControllers : MonoBehaviour
 
     }
 
-    
+
     public void HoverEnter()
     {
         anim.SetBool("Hover", true);
@@ -41,5 +42,14 @@ public class weaponWheelControllers : MonoBehaviour
     public void closing()
     {
         manager.Deselected();
+    }
+
+    public void setName(string name)
+    {
+        UIName.text = name;
+    }
+    public void eraseName()
+    {
+        UIName.text = "No turret selected";
     }
 }

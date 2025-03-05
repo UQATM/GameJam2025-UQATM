@@ -11,7 +11,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private TypeObstacle typeObstacle;
 
     // Variable interne pour stocker les points de vie de l’obstacle
-    [SerializeField] private int pointsDeVie;
+    [SerializeField] public int pointsDeVie;
 
     private void Start()
     {

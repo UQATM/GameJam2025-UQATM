@@ -6,6 +6,7 @@ public class two : MonoBehaviour
     public Camera mainCamera;
     public List<GameObject> objects;
 
+    private GameObject cameraQuadrant;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) 
@@ -95,4 +96,11 @@ public class two : MonoBehaviour
         );
         return screenPosition;
     }
+
+    public void SetQuadrantCamera(GameObject camera)
+    {
+        mainCamera =camera.GetComponent<Camera>();
+    }
 }
+
+

@@ -33,7 +33,10 @@ public class turretScript : MonoBehaviour
 
     public float fireCountdown = 0f;
 
-    
+    [Header("sounds")]
+    public AudioSource sourceAudio;
+
+
     public LayerMask layerMask;
 
     void Update()
@@ -71,11 +74,13 @@ public class turretScript : MonoBehaviour
                     
                     shootingSlow();
                     fireCountdown = 1f / fireRate;
+                    sourceAudio.Play();
                 }
                 else
                 {        
                     Shoot();
                     fireCountdown = 1f / fireRate;
+                    sourceAudio.Play();
                 }
             }
         }
