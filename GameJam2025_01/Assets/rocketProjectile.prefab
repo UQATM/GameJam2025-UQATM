@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5470560896872847546}
   - component: {fileID: 2149417352008886520}
   m_Layer: 0
-  m_Name: smallProjectile
+  m_Name: rocketProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,12 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357b44f4ac1668b4c8149a74834333ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 30
+  radius: 20
   maxDistance: 10
+  damage: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  currentProjectile: 0
+    m_Bits: 524288
+  currentProjectile: 3
 --- !u!54 &2149417352008886520
 Rigidbody:
   m_ObjectHideFlags: 0

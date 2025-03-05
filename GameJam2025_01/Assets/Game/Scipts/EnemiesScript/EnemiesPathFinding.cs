@@ -1,48 +1,55 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class EnemiesPathFinding : MonoBehaviour
 {
     private NavMeshAgent agent;
-
-    // These will be assigned by the spawner
-    [HideInInspector] public Transform midWaypoint;
-    [HideInInspector] public Transform finalTarget;
-
-    private bool headingToMid = true;
+    private List<Transform> pathWaypoints;
+    private int currentWaypointIndex;
+    private float repathTimer;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-        // Set the initial destination to the mid-waypoint (left or right)
-        if (midWaypoint != null)
-        {
-            agent.SetDestination(midWaypoint.position);
-        }
-        else
-        {
-            Debug.LogWarning("MidWaypoint is not assigned!");
-        }
+        InitializePath();
     }
 
     void Update()
     {
-        if (headingToMid)
+        if (pathWaypoints == null || currentWaypointIndex >= pathWaypoints.Count) return;
+
+        // Check if reached current waypoint
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            // If we've arrived at the mid-waypoint, switch to the final target
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            currentWaypointIndex++;
+            if (currentWaypointIndex < pathWaypoints.Count)
             {
-                headingToMid = false;
-                if (finalTarget != null)
-                {
-                    agent.SetDestination(finalTarget.position);
-                }
-                else
-                {
-                    Debug.LogWarning("Final target is not assigned!");
-                }
+                agent.SetDestination(pathWaypoints[currentWaypointIndex].position);
             }
+        }
+
+        // Periodic repathing to avoid stuck enemies
+        repathTimer += Time.deltaTime;
+        if (repathTimer > 1f)
+        {
+            agent.SetDestination(pathWaypoints[currentWaypointIndex].position);
+            repathTimer = 0;
+        }
+    }
+
+    public void SetPath(List<Transform> path)
+    {
+        pathWaypoints = path;
+        InitializePath();
+    }
+
+    private void InitializePath()
+    {
+        currentWaypointIndex = 0;
+        if (agent != null && pathWaypoints != null && pathWaypoints.Count > 0)
+        {
+            agent.SetDestination(pathWaypoints[0].position);
         }
     }
 }

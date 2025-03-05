@@ -1,66 +1,62 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Waves : MonoBehaviour
 {
-    [SerializeField] private int startingEnemies = 5;
-    [SerializeField] private EnemyHealth enemyHealth;
-    [SerializeField] private EnemySpawner enemySpawner;
+    [Header("Settings")]
+    [SerializeField] private int startingEnemiesPerSpawner = 5;
+    [SerializeField] private int startingEnemyHealth = 1;
+    [SerializeField] private List<EnemySpawner> enemySpawners;
     [SerializeField] private float initialWaveDelay = 5f;
+    [SerializeField] private float waveCooldown = 5f;
     [SerializeField] private TextMeshProUGUI waveCounterText;
 
-    private int currentWave = 0; // Start at 0 to correctly handle the first increment
-    private int enemiesAlive;
-    private bool waveEnded = true;
-    private int currentEnemyCount;
+    private int currentWave = 0;
+    private int totalEnemiesAlive;
+    private int currentEnemiesPerSpawner;
     private int currentEnemyHealth;
 
     private void Start()
     {
-        currentEnemyHealth = enemyHealth.currentEnemyHealth;
-        Invoke("StartNextWave", initialWaveDelay);
+        currentEnemiesPerSpawner = startingEnemiesPerSpawner;
+        currentEnemyHealth = startingEnemyHealth;
+        Invoke("StartNextWave", initialWaveDelay); // Initial 5-second delay
     }
 
     public void StartNextWave()
     {
-        if (!waveEnded) return;
+        currentWave++;
+        UpdateWaveCounter();
 
-        waveEnded = false;
-        currentWave++; 
-
-        currentEnemyCount = startingEnemies + (currentWave - 1);
-
-        int enemyHealthToUse = currentEnemyHealth;
+        // Calculate enemies and health for this wave
+        currentEnemiesPerSpawner = startingEnemiesPerSpawner + (currentWave - 1);
         if (currentWave % 5 == 0)
         {
-            currentEnemyCount++;
+            currentEnemiesPerSpawner++;
             currentEnemyHealth++;
-            enemyHealthToUse = currentEnemyHealth;
         }
 
-        enemiesAlive = currentEnemyCount;
-        Debug.Log($"Starting Wave {currentWave} with {currentEnemyCount} enemies.");
-        enemySpawner.SpawnWave(currentEnemyCount, enemyHealthToUse);
-        UpdateWaveCounter(); 
+        // Spawn enemies across all spawners
+        totalEnemiesAlive = currentEnemiesPerSpawner * enemySpawners.Count;
+        foreach (EnemySpawner spawner in enemySpawners)
+        {
+            spawner.SpawnWave(currentEnemiesPerSpawner, currentEnemyHealth);
+        }
     }
 
     public void OnEnemyKilled()
     {
-        enemiesAlive--;
-        Debug.Log($"Enemy killed. Remaining: {enemiesAlive}");
-
-        if (enemiesAlive <= 0)
+        totalEnemiesAlive--;
+        if (totalEnemiesAlive <= 0)
         {
-            waveEnded = true;
-            enemySpawner.OnWaveEnded();
+            Invoke("StartNextWave", waveCooldown); // 5-second cooldown
         }
     }
 
     private void UpdateWaveCounter()
     {
         if (waveCounterText != null)
-            waveCounterText.text = "Wave: " + currentWave;
+            waveCounterText.text = $"Wave: {currentWave}";
     }
-
-    public bool IsWaveEnded() => waveEnded;
 }

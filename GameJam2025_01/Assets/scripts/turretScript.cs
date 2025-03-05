@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 public enum turretType
 {
     smallTurret,
@@ -22,12 +23,14 @@ public class turretScript : MonoBehaviour
     [Header("Where it fire from and speed")]
     public Transform firePoint; // The point from where the projectile will be fired
     public float fireRate = 1f; // Time between shots
+    public int damage;
+    public float slowTime = 3f;
 
     [Header("Slow turret setting field of fire")]
     public float viewRadius = 10f;
     public float viewAngle = 90f;
 
-    private float fireCountdown = 0f;
+    public float fireCountdown = 0f;
 
     
     public LayerMask layerMask;
@@ -46,7 +49,11 @@ public class turretScript : MonoBehaviour
         {
             target = findTarget();
         }
-
+        if (target == null)
+        {
+            return;
+        }
+        
         // Rotate turret to face the target
         Vector3 direction = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -58,10 +65,11 @@ public class turretScript : MonoBehaviour
         {
             if (fireCountdown <= 0f)
             {
-                Debug.Log(Vector3.Distance(transform.position, target.position));
                 if (currentTurret == turretType.slowTurret)
                 {
+                    
                     shootingSlow();
+                    fireCountdown = 1f / fireRate;
                 }
                 else
                 {        
@@ -77,18 +85,17 @@ public class turretScript : MonoBehaviour
 
     private void shootingSlow()
     {
-        float blastRadius = 10f; // Adjust as needed
         Vector3 explosionPosition = transform.position;
 
         // Find all colliders in the explosion radius
-        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, blastRadius, layerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, viewRadius, layerMask);
 
         if (hitColliders.Length > 0)
         {
-
+            
             foreach (Collider hit in hitColliders)
             {
-                Debug.Log("Hit: " + hit.name);
+                Debug.Log(hit.gameObject.name);
                 checkAngle(hit.gameObject);
             }
         }
@@ -99,7 +106,7 @@ public class turretScript : MonoBehaviour
         Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
         if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
         {
-            //implement logic with target to reduce speed
+            StartCoroutine(slowingEnemies(target));
         }
     }
 
@@ -107,20 +114,26 @@ public class turretScript : MonoBehaviour
     {
         GameObject projectileGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.currentProjectile = projectileType.Rocket;
+        switch (currentTurret)
+        {
+            case turretType.smallTurret:
+                projectile.currentProjectile = projectileType.smallProjectile;
+                break;
+            case turretType.bigTurret:
+                projectile.currentProjectile = projectileType.Rocket;
+                break;
+        }
         if (projectile != null)
         {
-            projectile.Seek(target);
+            projectile.Seek(target, damage);
         }
     }
 
     Transform findTarget()
     {
-        float blastRadius = 10f; // Adjust as needed
         Vector3 explosionPosition = transform.position;
-
-        // Find all colliders in the explosion radius
-        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, blastRadius, layerMask);
+        
+        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, viewRadius, layerMask);
         Transform closestTarget = null;
         float closestDistance = float.MaxValue;
 
@@ -136,7 +149,6 @@ public class turretScript : MonoBehaviour
                     closestTarget = hit.gameObject.transform;
                 }
             }
-
             if (closestTarget != null)
             {
                 return closestTarget.transform;
@@ -149,5 +161,23 @@ public class turretScript : MonoBehaviour
         return null;
     }
 
+    IEnumerator slowingEnemies(GameObject target)
+    {
+        Debug.Log("enumarator starting");
+        float originalSpeed = target.GetComponent<NavMeshAgent>().speed;
+        target.GetComponent<NavMeshAgent>().speed = 3;
+
+        yield return new WaitForSeconds(slowTime);
+        target.GetComponent<NavMeshAgent>().speed = originalSpeed;
+        yield return null;
+    }
+    private void OnDrawGizmos()
+    {
+        // Set the color of the Gizmo
+        Gizmos.color = Color.red;
+
+        // Draw a wire sphere at the transform's position with the given blast radius
+        Gizmos.DrawWireSphere(transform.position, 50f);
+    }
 
 }

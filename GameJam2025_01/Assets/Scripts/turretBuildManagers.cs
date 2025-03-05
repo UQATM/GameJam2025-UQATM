@@ -33,6 +33,10 @@ public class turretBuildManagers : MonoBehaviour
             Debug.Log("meow2 : ");
             Transform turret = selectedSocket.transform.GetChild(turretID - 1); // Get the child (0-based index)
             turret.gameObject.SetActive(true);
+            if(turretID == 4)
+            {
+                //add for economy counter
+            }
         }
 
         selectedSocket.GetComponent<sockets>().alreadyBuilt = true;
