@@ -10,13 +10,21 @@ public class TankCannon : MonoBehaviour
     private GameObject _bulletM;
 
     [SerializeField]
+    private GameObject _bulletG;
+
+    [SerializeField]
     private GameObject _cannonEnd;
+
+    GameObject _reticle;
 
     [SerializeField]
     private int cooldownTimeC = 10;
 
     [SerializeField]
     private int cooldownTimeM = 3;
+
+    [SerializeField]
+    private int cooldownTimeG = 3;
 
     [SerializeField]
     private int ammoM = 50;
@@ -26,6 +34,8 @@ public class TankCannon : MonoBehaviour
     public bool isCooldownC = false;
 
     public bool isCooldownM = false;
+
+    public bool isCooldownG = false;
 
     private void Update()
     {
@@ -59,6 +69,18 @@ public class TankCannon : MonoBehaviour
                 Destroy(b, 10f);
             }
 
+            if(Input.GetKeyDown(playerManager.getKeybinds().ReparationTank) && !isCooldownG)
+            {
+                GameObject g = Instantiate(_bulletG, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
+                g.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * 25f, ForceMode.Impulse);
+                isCooldownG = true;
+                if(isCooldownG == true)
+                {
+                    StartCoroutine(CoolDownGrenade());
+                }
+                Destroy(g, 10f);
+            }
+
         }
     }
 
@@ -73,6 +95,12 @@ public class TankCannon : MonoBehaviour
         yield return new WaitForSeconds(cooldownTimeM);
         ammoM = 50;
         isCooldownM = false;
+    }
+
+    public IEnumerator CoolDownGrenade()
+    {
+        yield return new WaitForSeconds(cooldownTimeG);
+        isCooldownG = false;
     }
 
 }

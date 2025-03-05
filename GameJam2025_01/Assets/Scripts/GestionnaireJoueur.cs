@@ -7,6 +7,7 @@ public class GestionnaireJoueur : MonoBehaviour
     [SerializeField] KeyCode agrandir; //Contrôler tank
     [SerializeField] KeyCode tirPrincipalTank;
     [SerializeField] KeyCode tirSecondaireTank;
+    [SerializeField] KeyCode reparationTank;
     [SerializeField] KeyCode mortarCanon;
     [SerializeField] KeyCode switchFactoryMode;
 
@@ -17,6 +18,7 @@ public class GestionnaireJoueur : MonoBehaviour
         public KeyCode Agrandir;
         public KeyCode TirPrincipalTank;
         public KeyCode TirSecondaireTank;
+        public KeyCode ReparationTank;
         public KeyCode MortarCanon;
         public KeyCode SwitchFactoryMode;
     }
@@ -60,6 +62,7 @@ public class GestionnaireJoueur : MonoBehaviour
             Agrandir = agrandir, 
             TirPrincipalTank = tirPrincipalTank, 
             TirSecondaireTank = tirSecondaireTank,
+            ReparationTank = reparationTank,
             MortarCanon = mortarCanon,
             SwitchFactoryMode = switchFactoryMode
         };
