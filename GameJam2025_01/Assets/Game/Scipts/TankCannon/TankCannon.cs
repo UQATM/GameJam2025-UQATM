@@ -4,7 +4,10 @@ using UnityEngine;
 public class TankCannon : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _bullet;
+    private GameObject _bulletC;
+
+    [SerializeField]
+    private GameObject _bulletM;
 
     [SerializeField]
     private GameObject _cannonEnd;
@@ -13,22 +16,46 @@ public class TankCannon : MonoBehaviour
     private Camera cam;
 
     [SerializeField]
-    private int cooldownTime = 3;
+    private int cooldownTimeC = 10;
 
-    public bool isCooldown = false;
+    [SerializeField]
+    private int cooldownTimeM = 3;
+
+    [SerializeField]
+    private int ammoM = 50;
+
+    public bool isCooldownC = false;
+
+    public bool isCooldownM = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCooldown)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !isCooldownC)
         {
-            GameObject b = Instantiate(_bullet, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
+            GameObject b = Instantiate(_bulletC, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
             b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
-            isCooldown = true;
-            if (isCooldown == true)
+            isCooldownC = true;
+            if (isCooldownC == true)
             {
-                StartCoroutine(CoolDownhappening());
+                StartCoroutine(CoolDownCannon());
             }
-            Destroy(b, 5f);
+            Destroy(b, 10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCooldownM)
+        {
+            GameObject b = Instantiate(_bulletM, _cannonEnd.transform.position, _cannonEnd.transform.rotation);
+            b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+            ammoM--;
+            if (ammoM <= 0)
+            {
+                isCooldownM = true;
+            }
+            if (isCooldownM == true)
+            {
+                StartCoroutine(CoolDownMachineGun());
+            }
+            Destroy(b, 10f);
         }
 
         Vector3 mouse = Input.mousePosition;
@@ -39,10 +66,17 @@ public class TankCannon : MonoBehaviour
         transform.LookAt(mouseWorld);
     }
 
-    public IEnumerator CoolDownhappening()
+    public IEnumerator CoolDownCannon()
     {
-        yield return new WaitForSeconds(cooldownTime);
-        isCooldown = false;
+        yield return new WaitForSeconds(cooldownTimeC);
+        isCooldownC = false;
+    }
+
+    public IEnumerator CoolDownMachineGun()
+    {
+        yield return new WaitForSeconds(cooldownTimeM);
+        ammoM = 50;
+        isCooldownM = false;
     }
 
 }
