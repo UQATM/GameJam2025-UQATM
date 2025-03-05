@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3029059648222547444}
   - component: {fileID: 9017144341621884817}
   - component: {fileID: -1567832203434838977}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

@@ -124,6 +124,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
+  price: 40
   firePoint: {fileID: 4380185903402860891}
   fireRate: 0.2
   damage: 5
@@ -382,6 +383,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 4530461642848681444, guid: 2e3c163d6e560a84c965147e28090498,
     type: 3}
+  price: 20
   firePoint: {fileID: 6628056918653241358}
   fireRate: 2
   damage: 1
@@ -516,6 +518,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
+  price: 10
   firePoint: {fileID: 7493675464860617085}
   fireRate: 1
   damage: 5

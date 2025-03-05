@@ -19,6 +19,7 @@ public class turretScript : MonoBehaviour
     public Transform target; // The target the turret will aim at
     public float rotationSpeed = 5f; // Speed at which the turret rotates
     public GameObject projectilePrefab; // The projectile the turret will shoot
+    public int price;
 
     [Header("Where it fire from and speed")]
     public Transform firePoint; // The point from where the projectile will be fired
