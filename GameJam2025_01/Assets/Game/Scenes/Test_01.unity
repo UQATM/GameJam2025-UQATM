@@ -169,8 +169,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8912650479594373785, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
     type: 3}
   spawnDistance: 2
-  spawnInterval: 1
-  waveSystem: {fileID: 85411889}
+  spawnInterval: 4
   leftWaypoint: {fileID: 0}
   rightWaypoint: {fileID: 0}
   finalTarget: {fileID: 1972976362}
@@ -203,15 +202,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35850f9cb70292d41812d50af72c7a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingEnemies: 5
-  enemyHealth: {fileID: -1567832203434838977, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
-    type: 3}
+  startingEnemiesPerSpawner: 5
+  startingEnemyHealth: 1
   enemySpawners:
   - {fileID: 49202095}
   - {fileID: 1146351709}
   - {fileID: 627549931}
   - {fileID: 226274040}
   initialWaveDelay: 5
+  waveCooldown: 5
   waveCounterText: {fileID: 221560661}
 --- !u!4 &85411890
 Transform:
@@ -263,7 +262,6 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 3
   spawnInterval: 2
-  waveSystem: {fileID: 85411889}
   leftWaypoint: {fileID: 1781665933}
   rightWaypoint: {fileID: 1121247651}
   finalTarget: {fileID: 1972976362}
@@ -650,8 +648,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8912650479594373785, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
     type: 3}
   spawnDistance: 2
-  spawnInterval: 1
-  waveSystem: {fileID: 85411889}
+  spawnInterval: 4
   leftWaypoint: {fileID: 0}
   rightWaypoint: {fileID: 0}
   finalTarget: {fileID: 1972976362}
@@ -705,7 +702,6 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 4
   spawnInterval: 2
-  waveSystem: {fileID: 85411889}
   leftWaypoint: {fileID: 1781665933}
   rightWaypoint: {fileID: 1121247651}
   finalTarget: {fileID: 1972976362}
@@ -806,8 +802,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8912650479594373785, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
     type: 3}
   spawnDistance: 2
-  spawnInterval: 1
-  waveSystem: {fileID: 85411889}
+  spawnInterval: 4
   leftWaypoint: {fileID: 0}
   rightWaypoint: {fileID: 0}
   finalTarget: {fileID: 1972976362}
@@ -1082,7 +1077,6 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 4
   spawnInterval: 2
-  waveSystem: {fileID: 85411889}
   leftWaypoint: {fileID: 1781665933}
   rightWaypoint: {fileID: 1121247651}
   finalTarget: {fileID: 1972976362}
@@ -1363,8 +1357,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8912650479594373785, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
     type: 3}
   spawnDistance: 2
-  spawnInterval: 1
-  waveSystem: {fileID: 85411889}
+  spawnInterval: 4
   leftWaypoint: {fileID: 0}
   rightWaypoint: {fileID: 0}
   finalTarget: {fileID: 1972976362}
@@ -1575,7 +1568,6 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 4
   spawnInterval: 2
-  waveSystem: {fileID: 85411889}
   leftWaypoint: {fileID: 1781665933}
   rightWaypoint: {fileID: 1121247651}
   finalTarget: {fileID: 1972976362}
@@ -1764,7 +1756,7 @@ GameObject:
   - component: {fileID: 1972976363}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
