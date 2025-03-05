@@ -29,7 +29,9 @@ public class TankCannon : MonoBehaviour
     [SerializeField]
     private int ammoM = 50;
 
-    [SerializeField] GestionnaireJoueur playerManager;
+    [SerializeField]
+    GestionnaireJoueur playerManager;
+
 
     public bool isCooldownC = false;
 
