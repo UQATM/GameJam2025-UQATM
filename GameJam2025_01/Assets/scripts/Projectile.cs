@@ -77,12 +77,9 @@ public class Projectile : MonoBehaviour
 
         if (hitColliders.Length > 0)
         {
-            Debug.Log("Explosion hit " + hitColliders.Length + " targets.");
 
             foreach (Collider hit in hitColliders)
             {
-                Debug.Log("Hit: " + hit.name);
-                Rigidbody rb = hit.GetComponent<Rigidbody>();
                 //enemie lose hp logic
             }
         }

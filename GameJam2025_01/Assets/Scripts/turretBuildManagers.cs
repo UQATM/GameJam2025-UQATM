@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turretBuildManager : MonoBehaviour
+public class turretBuildManagers : MonoBehaviour
 {
     [Header("Which socket will have turret spawn")]
     public GameObject selectedSocket;
@@ -45,6 +45,7 @@ public class turretBuildManager : MonoBehaviour
 
     public void Deselected()
     {
+        selectedSocket = null;
         uiSelectionTool.SetActive(false);
     }
 

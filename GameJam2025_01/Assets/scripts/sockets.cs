@@ -5,7 +5,7 @@ using UnityEngine;
 public class sockets : MonoBehaviour
 {
     [Header("Scripts attributing")]
-    public turretBuildManager turretBuildScript;
+    public turretBuildManagers turretBuildScript;
 
     [Header("Turret settings")]
     public bool alreadyBuilt;

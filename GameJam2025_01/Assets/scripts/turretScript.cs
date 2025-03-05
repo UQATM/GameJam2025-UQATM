@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 public enum turretType
 {
@@ -12,6 +14,7 @@ public class turretScript : MonoBehaviour
 {
 
     [Header("Turret attribute")]
+    public turretType currentTurret;
     public Transform target; // The target the turret will aim at
     public float rotationSpeed = 5f; // Speed at which the turret rotates
     public GameObject projectilePrefab; // The projectile the turret will shoot
@@ -26,13 +29,23 @@ public class turretScript : MonoBehaviour
 
     private float fireCountdown = 0f;
 
-    public turretType currentTurret;
+    
     public LayerMask layerMask;
 
     void Update()
     {
         if (target == null)
+        {
+            target = findTarget();
+        }
+        if (target == null)
+        {
             return;
+        }
+        if (Vector3.Distance(transform.position, target.position) > viewRadius)
+        {
+            target = findTarget();
+        }
 
         // Rotate turret to face the target
         Vector3 direction = target.position - transform.position;
@@ -45,6 +58,7 @@ public class turretScript : MonoBehaviour
         {
             if (fireCountdown <= 0f)
             {
+                Debug.Log(Vector3.Distance(transform.position, target.position));
                 if (currentTurret == turretType.slowTurret)
                 {
                     shootingSlow();
@@ -71,7 +85,6 @@ public class turretScript : MonoBehaviour
 
         if (hitColliders.Length > 0)
         {
-            Debug.Log("Explosion hit " + hitColliders.Length + " targets.");
 
             foreach (Collider hit in hitColliders)
             {
@@ -100,5 +113,41 @@ public class turretScript : MonoBehaviour
             projectile.Seek(target);
         }
     }
+
+    Transform findTarget()
+    {
+        float blastRadius = 10f; // Adjust as needed
+        Vector3 explosionPosition = transform.position;
+
+        // Find all colliders in the explosion radius
+        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, blastRadius, layerMask);
+        Transform closestTarget = null;
+        float closestDistance = float.MaxValue;
+
+        if (hitColliders.Length > 0)
+        {
+
+            foreach (Collider hit in hitColliders)
+            {
+                float distance = Vector3.Distance(explosionPosition, hit.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestTarget = hit.gameObject.transform;
+                }
+            }
+
+            if (closestTarget != null)
+            {
+                return closestTarget.transform;
+            }
+        }
+        else
+        {
+            return null;
+        }
+        return null;
+    }
+
 
 }
