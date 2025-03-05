@@ -2,54 +2,74 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemiesPathFinding : MonoBehaviour
 {
+    [Header("Navigation Settings")]
+    [SerializeField] private float pathUpdateTolerance = 0.5f;  // Minimum distance change to trigger path update
+    [SerializeField] private float centerPathBias = 0.5f;       // 0 = left edge, 1 = right edge, 0.5 = center
+
     private NavMeshAgent agent;
     private List<Transform> pathWaypoints;
     private int currentWaypointIndex;
-    private float repathTimer;
+    private Vector3 currentTargetPosition;
+    private float originalStoppingDistance;
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        InitializePath();
+        originalStoppingDistance = agent.stoppingDistance;
+
+        // Configure for smoother path following
+        agent.acceleration = 25f;
+        agent.angularSpeed = 360f;
+        agent.radius = 0.25f;  // Reduce to prevent wall hugging
     }
 
     void Update()
     {
         if (pathWaypoints == null || currentWaypointIndex >= pathWaypoints.Count) return;
 
-        // Check if reached current waypoint
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        // Calculate adjusted target position with center bias
+        Vector3 waypointPosition = pathWaypoints[currentWaypointIndex].position;
+        Vector3 pathDirection = (waypointPosition - transform.position).normalized;
+        Vector3 rightOffset = Vector3.Cross(pathDirection, Vector3.up) * agent.radius * (centerPathBias - 0.5f) * 2;
+
+        currentTargetPosition = waypointPosition + rightOffset;
+
+        // Update destination only when significantly needed
+        if (Vector3.Distance(agent.destination, currentTargetPosition) > pathUpdateTolerance)
+        {
+            agent.SetDestination(currentTargetPosition);
+        }
+
+        // Progress to next waypoint
+        if (!agent.pathPending &&
+            agent.remainingDistance <= agent.stoppingDistance + 0.1f)
         {
             currentWaypointIndex++;
             if (currentWaypointIndex < pathWaypoints.Count)
             {
-                agent.SetDestination(pathWaypoints[currentWaypointIndex].position);
+                agent.stoppingDistance = originalStoppingDistance;
             }
-        }
-
-        // Periodic repathing to avoid stuck enemies
-        repathTimer += Time.deltaTime;
-        if (repathTimer > 1f)
-        {
-            agent.SetDestination(pathWaypoints[currentWaypointIndex].position);
-            repathTimer = 0;
         }
     }
 
     public void SetPath(List<Transform> path)
     {
         pathWaypoints = path;
-        InitializePath();
+        currentWaypointIndex = 0;
+        agent.stoppingDistance = 0.1f;  // Tight tolerance for waypoints
+        agent.SetDestination(currentTargetPosition);
     }
 
-    private void InitializePath()
+    void OnDrawGizmosSelected()
     {
-        currentWaypointIndex = 0;
-        if (agent != null && pathWaypoints != null && pathWaypoints.Count > 0)
+        if (agent != null && pathWaypoints != null && currentWaypointIndex < pathWaypoints.Count)
         {
-            agent.SetDestination(pathWaypoints[0].position);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, currentTargetPosition);
+            Gizmos.DrawSphere(currentTargetPosition, 0.25f);
         }
     }
 }
