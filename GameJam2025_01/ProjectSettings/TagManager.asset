@@ -9,6 +9,7 @@ TagManager:
   - MachineGun
   - Obstacle
   - Base
+  - Boss
   layers:
   - Default
   - TransparentFX

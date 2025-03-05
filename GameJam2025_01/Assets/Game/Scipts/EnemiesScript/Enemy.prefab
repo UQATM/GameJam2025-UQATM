@@ -103,7 +103,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -146,7 +146,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 25
+  m_Speed: 50
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -170,8 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b4fdcf3c395aa4190b97ea9ec973f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathUpdateTolerance: 0.7
-  centerPathBias: 1
+  midWaypoint: {fileID: 0}
+  roundabout1: {fileID: 0}
+  roundabout2: {fileID: 0}
+  finalTarget: {fileID: 0}
 --- !u!114 &-1567832203434838977
 MonoBehaviour:
   m_ObjectHideFlags: 0
