@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: healthBarFill
       value: 
       objectReference: {fileID: 1115006967}
+    - target: {fileID: 1260076769937375999, guid: ecd07c149881c3945b558fdb4dbfddc9,
+        type: 3}
+      propertyPath: twoScript
+      value: 
+      objectReference: {fileID: 1598828876}
     - target: {fileID: 2811972485381080068, guid: ecd07c149881c3945b558fdb4dbfddc9,
         type: 3}
       propertyPath: healthBarFill
@@ -465,19 +470,8 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 4
-  split1_Left: {fileID: 1781665933}
-  split1_Right: {fileID: 1121247651}
-  split2_Left: {fileID: 0}
-  split2_Right: {fileID: 0}
-  round1: {fileID: 0}
-  round2: {fileID: 0}
-  round3: {fileID: 0}
-  round4: {fileID: 0}
-  split3_Left: {fileID: 0}
-  split3_Right: {fileID: 0}
-  split4_Left: {fileID: 0}
-  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1300687537}
+  waveSystem: {fileID: 0}
 --- !u!1001 &51511380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1121,19 +1115,8 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 4
-  split1_Left: {fileID: 0}
-  split1_Right: {fileID: 0}
-  split2_Left: {fileID: 0}
-  split2_Right: {fileID: 0}
-  round1: {fileID: 0}
-  round2: {fileID: 0}
-  round3: {fileID: 0}
-  round4: {fileID: 0}
-  split3_Left: {fileID: 0}
-  split3_Right: {fileID: 0}
-  split4_Left: {fileID: 0}
-  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1300687537}
+  waveSystem: {fileID: 0}
 --- !u!4 &226274041
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,6 +1398,7 @@ MonoBehaviour:
   manager: {fileID: 1598828875}
   Id: 3
   itemName: 
+  UIName: {fileID: 0}
 --- !u!95 &377836564
 Animator:
   serializedVersion: 5
@@ -1662,6 +1646,7 @@ MonoBehaviour:
   manager: {fileID: 1598828875}
   Id: 1
   itemName: 
+  UIName: {fileID: 0}
 --- !u!114 &403554701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,19 +2056,8 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 4
-  split1_Left: {fileID: 0}
-  split1_Right: {fileID: 0}
-  split2_Left: {fileID: 0}
-  split2_Right: {fileID: 0}
-  round1: {fileID: 1943132057}
-  round2: {fileID: 1474243444}
-  round3: {fileID: 323012289}
-  round4: {fileID: 322958280}
-  split3_Left: {fileID: 0}
-  split3_Right: {fileID: 0}
-  split4_Left: {fileID: 0}
-  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1300687537}
+  waveSystem: {fileID: 0}
 --- !u!4 &627549932
 Transform:
   m_ObjectHideFlags: 0
@@ -2475,6 +2449,7 @@ MonoBehaviour:
   manager: {fileID: 1598828875}
   Id: 2
   itemName: 
+  UIName: {fileID: 0}
 --- !u!95 &722158238
 Animator:
   serializedVersion: 5
@@ -2912,19 +2887,8 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 4
-  split1_Left: {fileID: 1566615645}
-  split1_Right: {fileID: 1320821074}
-  split2_Left: {fileID: 1991919052}
-  split2_Right: {fileID: 1343336613}
-  round1: {fileID: 0}
-  round2: {fileID: 0}
-  round3: {fileID: 0}
-  round4: {fileID: 0}
-  split3_Left: {fileID: 0}
-  split3_Right: {fileID: 0}
-  split4_Left: {fileID: 0}
-  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1300687537}
+  waveSystem: {fileID: 0}
 --- !u!4 &1146351710
 Transform:
   m_ObjectHideFlags: 0
@@ -3790,6 +3754,7 @@ MonoBehaviour:
   manager: {fileID: 1598828875}
   Id: 0
   itemName: 
+  UIName: {fileID: 0}
 --- !u!95 &1361302651
 Animator:
   serializedVersion: 5
@@ -4387,7 +4352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoney: 0
-  startingMoney: 100
+  startingMoney: 0
   numberOfTower: 0
 --- !u!114 &1598828875
 MonoBehaviour:
@@ -4404,6 +4369,9 @@ MonoBehaviour:
   selectedSocket: {fileID: 0}
   uiSelectionTool: {fileID: 1210186665}
   turret: {fileID: 0}
+  economyScript: {fileID: 0}
+  sourceAudio: {fileID: 0}
+  deniedClip: {fileID: 0}
 --- !u!114 &1598828876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4735,6 +4703,7 @@ MonoBehaviour:
   manager: {fileID: 1598828875}
   Id: 4
   itemName: 
+  UIName: {fileID: 0}
 --- !u!95 &1838171694
 Animator:
   serializedVersion: 5
