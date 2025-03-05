@@ -1,33 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // The enemy prefab to spawn
     public GameObject enemyPrefab;
-
-    // Time interval between spawns in seconds
     public float spawnInterval = 2f;
+    public float spawnDistance = 2f; // Distance in front of the spawner to spawn the enemy
 
-    // Start is called before the first frame update
+    // Waypoints and final destination assigned in the Inspector
+    public Transform leftWaypoint;
+    public Transform rightWaypoint;
+    public Transform finalTarget;
+
+    private bool spawnLeft = true; // Toggle to alternate spawns
+
     void Start()
     {
-        // Begin spawning enemies immediately and repeat every spawnInterval seconds
-        InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
+        // Spawn enemies repeatedly
+        InvokeRepeating(nameof(SpawnEnemy), 0f, spawnInterval);
+        //SpawnEnemy();
+        //SpawnEnemy();
     }
 
-    // Method to spawn the enemy prefab
     void SpawnEnemy()
     {
-        if (enemyPrefab != null)
+        // Calculate a spawn position in front of the spawner
+        Vector3 spawnPos = transform.position + transform.forward * spawnDistance;
+        GameObject newEnemy = Instantiate(enemyPrefab, spawnPos, transform.rotation);
+
+        // Get the MultiPathEnemy script on the spawned enemy
+        EnemiesPathFinding enemyScript = newEnemy.GetComponent<EnemiesPathFinding>();
+        if (enemyScript != null)
         {
-            // Instantiate enemy at the spawner's position with no rotation
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            // Alternate: assign the left waypoint on one spawn and the right on the next
+            enemyScript.midWaypoint = spawnLeft ? leftWaypoint : rightWaypoint;
+            enemyScript.finalTarget = finalTarget;
+
+            // Toggle for next spawn
+            spawnLeft = !spawnLeft;
         }
         else
         {
-            Debug.LogWarning("Enemy prefab is not assigned in the inspector!");
+            Debug.LogWarning("Enemy prefab is missing the MultiPathEnemy script!");
         }
     }
 }
