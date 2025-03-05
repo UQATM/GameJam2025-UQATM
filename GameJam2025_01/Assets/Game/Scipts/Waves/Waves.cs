@@ -10,7 +10,7 @@ public class Waves : MonoBehaviour
     [SerializeField] private List<EnemySpawner> enemySpawners;
     [SerializeField] private float initialWaveDelay = 5f;
     [SerializeField] private float waveCooldown = 5f;
-    [SerializeField] private TextMeshProUGUI waveCounterText;
+    [SerializeField] public TextMeshProUGUI waveCounterText;
 
     private int currentWave = 0;
     private int totalEnemiesAlive;

@@ -9,20 +9,43 @@ public class Bullet : MonoBehaviour
         if (other.transform.tag == "Enemy")
         {
             EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
-            if (this.transform.tag == "MachineGun")
+            switch (this.transform.tag)
             {
-                enemyHealth.TakeDamage(5);
-            }
-            else if (this.transform.tag == "Cannon")
-            {
-                enemyHealth.TakeDamage(15);
-            }
-            else if (this.transform.tag == "Grenade")
-            {
-                Debug.Log(other.gameObject);
-            }
+                case "MachineGun":
+                    {
+                        enemyHealth.TakeDamage(5);
+                        break;
+                    }
+                case "Cannon":
+                    {
+                        enemyHealth.TakeDamage(15);
+                        break;
+                    }
+                case "Grenade":
+                    {
+                        enemyHealth.TakeDamage(10);
+                        break;
+                    }
 
+                default:
+                    break;
+            }
             Destroy(this.gameObject);
+        }
+
+        else if (other.transform.tag == "Obstacle")
+        {
+            Obstacle obstacle = gameObject.GetComponent<Obstacle>();
+            switch (this.transform.tag)
+            {
+                case "Grenade":
+                {
+                        obstacle.pointsDeVie += 10;
+                    break;
+                }
+            default:
+                break;
+            }
         }
     }
 }

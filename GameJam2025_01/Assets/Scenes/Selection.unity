@@ -610,6 +610,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
+  price: 0
   firePoint: {fileID: 132692828}
   fireRate: 1
   damage: 0
@@ -720,15 +721,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35850f9cb70292d41812d50af72c7a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingEnemies: 5
-  enemyHealth: {fileID: -1567832203434838977, guid: 72aa8355de0c922469ed4b7c1c5d99b3,
-    type: 3}
+  startingEnemiesPerSpawner: 5
+  startingEnemyHealth: 1
   enemySpawners:
   - {fileID: 1072599350}
   - {fileID: 1146329470}
   - {fileID: 1884100150}
   - {fileID: 817152893}
   initialWaveDelay: 5
+  waveCooldown: 5
   waveCounterText: {fileID: 1150718681}
 --- !u!4 &242077871
 Transform:
@@ -1233,6 +1234,7 @@ GameObject:
   - component: {fileID: 423160569}
   - component: {fileID: 423160570}
   - component: {fileID: 423160571}
+  - component: {fileID: 423160572}
   m_Layer: 0
   m_Name: gamemanager
   m_TagString: GameController
@@ -1285,6 +1287,22 @@ MonoBehaviour:
   selectedSocket: {fileID: 0}
   uiSelectionTool: {fileID: 1002580248}
   turret: {fileID: 0}
+  economyScript: {fileID: 423160572}
+--- !u!114 &423160572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423160567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707a62a79aed51e41988dc30bbbca9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoney: 0
+  startingMoney: 0
+  numberOfTower: 0
 --- !u!1 &444770711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,9 +2359,18 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 1
-  waveSystem: {fileID: 0}
-  leftWaypoint: {fileID: 0}
-  rightWaypoint: {fileID: 0}
+  split1_Left: {fileID: 0}
+  split1_Right: {fileID: 0}
+  split2_Left: {fileID: 0}
+  split2_Right: {fileID: 0}
+  round1: {fileID: 0}
+  round2: {fileID: 0}
+  round3: {fileID: 0}
+  round4: {fileID: 0}
+  split3_Left: {fileID: 0}
+  split3_Right: {fileID: 0}
+  split4_Left: {fileID: 0}
+  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1080370030}
 --- !u!4 &817152894
 Transform:
@@ -3187,9 +3214,18 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 1
-  waveSystem: {fileID: 242077870}
-  leftWaypoint: {fileID: 0}
-  rightWaypoint: {fileID: 0}
+  split1_Left: {fileID: 0}
+  split1_Right: {fileID: 0}
+  split2_Left: {fileID: 0}
+  split2_Right: {fileID: 0}
+  round1: {fileID: 0}
+  round2: {fileID: 0}
+  round3: {fileID: 0}
+  round4: {fileID: 0}
+  split3_Left: {fileID: 0}
+  split3_Right: {fileID: 0}
+  split4_Left: {fileID: 0}
+  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1080370030}
 --- !u!4 &1072599351
 Transform:
@@ -3466,9 +3502,18 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 1
-  waveSystem: {fileID: 0}
-  leftWaypoint: {fileID: 0}
-  rightWaypoint: {fileID: 0}
+  split1_Left: {fileID: 0}
+  split1_Right: {fileID: 0}
+  split2_Left: {fileID: 0}
+  split2_Right: {fileID: 0}
+  round1: {fileID: 0}
+  round2: {fileID: 0}
+  round3: {fileID: 0}
+  round4: {fileID: 0}
+  split3_Left: {fileID: 0}
+  split3_Right: {fileID: 0}
+  split4_Left: {fileID: 0}
+  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1080370030}
 --- !u!4 &1146329471
 Transform:
@@ -3746,6 +3791,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
+  price: 0
   firePoint: {fileID: 356041914}
   fireRate: 0.2
   damage: 1
@@ -3986,6 +4032,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 4530461642848681444, guid: 2e3c163d6e560a84c965147e28090498,
     type: 3}
+  price: 20
   firePoint: {fileID: 1086123233}
   fireRate: 2
   damage: 1
@@ -4120,6 +4167,7 @@ MonoBehaviour:
   rotationSpeed: 5
   projectilePrefab: {fileID: 1572654512974714875, guid: 7ee80e26d41e27b4f9546d117cfb2f59,
     type: 3}
+  price: 0
   firePoint: {fileID: 1949242055}
   fireRate: 1
   damage: 1
@@ -4501,9 +4549,18 @@ MonoBehaviour:
     type: 3}
   spawnDistance: 2
   spawnInterval: 1
-  waveSystem: {fileID: 0}
-  leftWaypoint: {fileID: 0}
-  rightWaypoint: {fileID: 0}
+  split1_Left: {fileID: 0}
+  split1_Right: {fileID: 0}
+  split2_Left: {fileID: 0}
+  split2_Right: {fileID: 0}
+  round1: {fileID: 0}
+  round2: {fileID: 0}
+  round3: {fileID: 0}
+  round4: {fileID: 0}
+  split3_Left: {fileID: 0}
+  split3_Right: {fileID: 0}
+  split4_Left: {fileID: 0}
+  split4_Right: {fileID: 0}
   finalTarget: {fileID: 1080370030}
 --- !u!4 &1884100151
 Transform:

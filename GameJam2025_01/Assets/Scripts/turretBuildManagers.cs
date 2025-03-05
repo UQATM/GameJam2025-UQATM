@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class turretBuildManagers : MonoBehaviour
@@ -12,6 +13,9 @@ public class turretBuildManagers : MonoBehaviour
 
     [Header("Select which turret to activate")]
     public GameObject turret;
+
+    [Header("Scripts attributing")]
+    public economyBase economyScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +30,27 @@ public class turretBuildManagers : MonoBehaviour
 
     public void buildTurret(int turretID)
     {
-        Debug.Log("meow" + (turretID - 1));
-        Debug.Log(selectedSocket.transform.childCount);
         if (turretID > 0 && turretID <= selectedSocket.transform.childCount) // Ensure the turretID is valid
         {
-            Debug.Log("meow2 : ");
+            if(turretID == 4)
+            {
+                if(!economyScript.checkPrice(40))
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (!economyScript.checkPrice(selectedSocket.transform.GetChild(turretID - 1).GetComponent<turretScript>().price))
+                {
+                    return;
+                }
+            }
             Transform turret = selectedSocket.transform.GetChild(turretID - 1); // Get the child (0-based index)
             turret.gameObject.SetActive(true);
             if(turretID == 4)
             {
-                //add for economy counter
+                economyScript.numberOfTower++;
             }
         }
 
