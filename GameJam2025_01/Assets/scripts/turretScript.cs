@@ -12,6 +12,7 @@ public class turretScript : MonoBehaviour
 {
 
     [Header("Turret attribute")]
+    public turretType currentTurret;
     public Transform target; // The target the turret will aim at
     public float rotationSpeed = 5f; // Speed at which the turret rotates
     public GameObject projectilePrefab; // The projectile the turret will shoot
@@ -26,7 +27,7 @@ public class turretScript : MonoBehaviour
 
     private float fireCountdown = 0f;
 
-    public turretType currentTurret;
+    
     public LayerMask layerMask;
 
     void Update()
