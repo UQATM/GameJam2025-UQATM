@@ -14,6 +14,7 @@ public class ChoisirCadrant : MonoBehaviour
     void Start()
     {
         keybinds = playerManager.getKeybinds();
+        tank.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class ChoisirCadrant : MonoBehaviour
                     playerManager.setActiveState(GestionnaireJoueur.State.tank);
                     tank.SetActive(true);
                     camCadrantActif.SetActive(false);
-
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
                 break;
             case GestionnaireJoueur.State.tank:
@@ -68,6 +69,7 @@ public class ChoisirCadrant : MonoBehaviour
                     playerManager.setActiveState(GestionnaireJoueur.State.towerDefence);
                     camCadrantActif.SetActive(true);
                     tank.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 break;
         }
