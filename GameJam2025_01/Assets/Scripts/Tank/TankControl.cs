@@ -7,6 +7,7 @@ public class TankControl : MonoBehaviour
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
     [SerializeField] Transform head;
+    [SerializeField] Transform canon;
     [SerializeField] float sensibilite;
     Transform root;
     float input;
@@ -50,7 +51,7 @@ public class TankControl : MonoBehaviour
         rotationTeteX -= mouvementX;
         rotationTeteY -= mouvementY;
 
-        rotationTeteY = Mathf.Clamp(rotationTeteY, -15f, 2f);
+        rotationTeteY = Mathf.Clamp(rotationTeteY, -15f, 5f);
     }
 
     void FixedUpdate()
@@ -58,7 +59,8 @@ public class TankControl : MonoBehaviour
         root.Translate(0, 0, vitesse);
         root.Rotate(0, rotation, 0);
 
-        head.localRotation = Quaternion.Euler(rotationTeteY, -rotationTeteX, 0f);
+        head.localRotation = Quaternion.Euler(0, -rotationTeteX, 0f);
+        canon.localRotation = Quaternion.Euler(rotationTeteY, 0f, 0f);
     }
 
     float DeplacerTank(float _current, float _cible, float _acceleration)
