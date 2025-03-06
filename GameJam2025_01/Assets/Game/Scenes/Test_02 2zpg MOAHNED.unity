@@ -3366,9 +3366,9 @@ MonoBehaviour:
   waveCounterText: {fileID: 221560661}
   bossPrefab: {fileID: 7183045572600233147, guid: a7eb53522924389439c2dcc3fb968adc,
     type: 3}
-  bossHealth: 30
-  bossSpawnDistance: 0
-  bossSpawnDelay: 0
+  bossHealth: 50
+  bossSpawnDistance: 2
+  bossSpawnDelay: 25
 --- !u!4 &85411890
 Transform:
   m_ObjectHideFlags: 0
