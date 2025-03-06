@@ -821,7 +821,7 @@ MonoBehaviour:
     type: 3}
   bossHealth: 50
   bossSpawnDistance: 5
-  bossSpawnDelay: 10
+  bossSpawnDelay: 25
 --- !u!4 &85411890
 Transform:
   m_ObjectHideFlags: 0
