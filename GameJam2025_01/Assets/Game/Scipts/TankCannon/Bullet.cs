@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")
         {
-            EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
+            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
             switch (this.transform.tag)
             {
                 case "MachineGun":
@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 
         else if (other.transform.tag == "Obstacle")
         {
-            Obstacle obstacle = gameObject.GetComponent<Obstacle>();
+            Obstacle obstacle = other.gameObject.GetComponent<Obstacle>();
             switch (this.transform.tag)
             {
                 case "Grenade":

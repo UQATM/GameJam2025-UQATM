@@ -9,7 +9,7 @@ public class WaveReached : MonoBehaviour
     private Text _wave;
     void Start()
     {
-        Waves _waveCounter = gameObject.GetComponent<Waves>();
+        Waves _waveCounter = GetComponent<Waves>();
         if (_waveCounter != null)
         {
             _wave.text = _waveCounter.waveCounterText.ToString();

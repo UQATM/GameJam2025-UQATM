@@ -14,10 +14,14 @@ public class Quit : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void Rules()
+    {
+        SceneManager.LoadScene(2);
+    }
 
     public void GameOver()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void EndApplication()
