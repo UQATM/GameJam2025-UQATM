@@ -46,7 +46,7 @@ public class BaseHealth : MonoBehaviour
 
         if (currentHealth <= damage)
         {
-            Quit GameManager = gameObject.GetComponent<Quit>();
+            Quit GameManager = new Quit();
             GameManager.GameOver();
         }
     }

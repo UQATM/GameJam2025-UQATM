@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
+    private int _gunDamage = 1;
+
+    [SerializeField]
+    private int _grenadeDamage = 2;
+
+    [SerializeField]
+    private int _cannonDamage = 3;
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.transform.tag == "Enemy")
@@ -13,17 +22,17 @@ public class Bullet : MonoBehaviour
             {
                 case "MachineGun":
                     {
-                        enemyHealth.TakeDamage(5);
+                        enemyHealth.TakeDamage(_gunDamage);
                         break;
                     }
                 case "Cannon":
                     {
-                        enemyHealth.TakeDamage(15);
+                        enemyHealth.TakeDamage(_cannonDamage);
                         break;
                     }
                 case "Grenade":
                     {
-                        enemyHealth.TakeDamage(10);
+                        enemyHealth.TakeDamage(_grenadeDamage);
                         break;
                     }
 
@@ -32,7 +41,6 @@ public class Bullet : MonoBehaviour
             }
             Destroy(this.gameObject);
         }
-
         else if (other.transform.tag == "Obstacle")
         {
             Obstacle obstacle = other.gameObject.GetComponent<Obstacle>();
@@ -46,6 +54,33 @@ public class Bullet : MonoBehaviour
                 default:
                     break;
             }
+            Destroy(this.gameObject);
+        }
+        else if (other.transform.tag == "Boss")
+        {
+            Boss boss = other.gameObject.GetComponent<Boss>();
+            switch (this.transform.tag)
+            {
+                case "MachineGun":
+                    {
+                        boss.TakeDamage(_gunDamage);
+                        break;
+                    }
+                case "Cannon":
+                    {
+                        boss.TakeDamage(_cannonDamage);
+                        break;
+                    }
+                case "Grenade":
+                    {
+                        boss.TakeDamage(_grenadeDamage);
+                        break;
+                    }
+
+                default:
+                    break;
+            }
+            Destroy(this.gameObject);
         }
     }
 }
