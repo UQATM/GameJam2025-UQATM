@@ -42,4 +42,25 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void SpawnBoss(GameObject bossPrefab, int bossHealth, float bossSpawnDistance)
+    {
+        Vector3 spawnPos = transform.position + transform.forward * bossSpawnDistance;
+        GameObject boss = Instantiate(bossPrefab, spawnPos, transform.rotation);
+
+        // Configure the boss's wave system reference without overriding its health.
+        Boss bossScript = boss.GetComponent<Boss>();
+        if (bossScript != null)
+        {
+            // Optionally, if you want to override the boss's health from the wave script, uncomment the following line.
+            bossScript.SetHealth(bossHealth);
+            bossScript.SetWaveSystem(waveSystem);
+        }
+
+        // Configure pathfinding for the boss using the same final target as regular enemies.
+        EnemiesPathFinding pathScript = boss.GetComponent<EnemiesPathFinding>();
+        if (pathScript != null && finalTarget != null)
+        {
+            pathScript.SetFinalTarget(finalTarget);
+        }
+    }
 }

@@ -3,11 +3,10 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [Header("Settings")]
-     private int BoosHealth;
-     public int currentBoosHealth;
-     private int attackDamage;
+    [SerializeField] private int BoosHealth; // Maximum boss health
+    public int currentBoosHealth;           // Current boss health
+    [SerializeField] private int attackDamage = 50;
 
-    private int currentHealth;
     private Waves waveSystem;
 
     private void Start()
@@ -16,12 +15,20 @@ public class Boss : MonoBehaviour
         Debug.Log("Boss spawned! Health: " + currentBoosHealth);
     }
 
+    public void SetHealth(int hp)
+    {
+        BoosHealth = hp;
+        currentBoosHealth = hp;
+        Debug.Log(gameObject.name + " health set to: " + hp);
+    }
+
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentBoosHealth -= damage;
         Debug.Log("Boss took " + damage + " damage! Remaining health: " + currentBoosHealth);
 
-        if (currentHealth <= 0)
+        // Die if health reaches 0 or below (or add any other condition if desired)
+        if (currentBoosHealth <= 0)
         {
             Die();
         }
@@ -30,7 +37,7 @@ public class Boss : MonoBehaviour
     private void Die()
     {
         Debug.Log("Boss defeated!");
-        waveSystem.OnEnemyKilled();
+        // Do not call waveSystem.OnEnemyKilled() here so that the boss isn't counted in the wave enemy count.
         Destroy(gameObject);
     }
 
@@ -42,7 +49,6 @@ public class Boss : MonoBehaviour
     // Call this from attack animations or trigger events
     public void PerformAttack()
     {
-        // Implement your attack logic here
         Debug.Log("Boss attacks for " + attackDamage + " damage!");
     }
 }

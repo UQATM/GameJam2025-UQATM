@@ -1,22 +1,20 @@
 using UnityEngine;
+
 public enum TypeObstacle
 {
     Bois,
     Pierre,
     Metal,
 }
+
 public class Obstacle : MonoBehaviour
 {
-    // Sélection du type d'obstacle dans l'Inspector
     [SerializeField] private TypeObstacle typeObstacle;
-
-    // Variable interne pour stocker les points de vie de l'obstacle
     [SerializeField] int pointsDeVie;
     [SerializeField] int pvMax;
 
     private void Start()
     {
-        // Selon le type d’obstacle, on attribue un HP différent
         switch (typeObstacle)
         {
             case TypeObstacle.Bois:
@@ -32,7 +30,6 @@ public class Obstacle : MonoBehaviour
                 pvMax = 10;
                 break;
             default:
-                // Valeur par défaut si aucun case ne correspond
                 pointsDeVie = 10;
                 pvMax = 10;
                 break;
@@ -42,10 +39,11 @@ public class Obstacle : MonoBehaviour
     public void AddPtsVie(int _nbrPV)
     {
         pointsDeVie += _nbrPV;
-        if(pointsDeVie > pvMax) {
+        if (pointsDeVie > pvMax)
+        {
             pointsDeVie = pvMax;
         }
-        Debug.Log(_nbrPV + "pv ont été ajouté");
+        Debug.Log(_nbrPV + " pv ont été ajouté");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -68,7 +66,23 @@ public class Obstacle : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            Boss boss = collision.gameObject.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(20);
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
+
+            pointsDeVie -= 200;
+            if (pointsDeVie <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
-
-
 }
