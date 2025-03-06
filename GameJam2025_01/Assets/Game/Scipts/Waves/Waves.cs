@@ -6,7 +6,7 @@ public class Waves : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private int startingEnemiesPerSpawner = 5;
-    [SerializeField] private int startingEnemyHealth = 1;
+    [SerializeField] private int startingEnemyHealth = 6;
     [SerializeField] private List<EnemySpawner> enemySpawners;
     [SerializeField] private float initialWaveDelay = 5f;
     [SerializeField] private float waveCooldown = 5f;
@@ -45,8 +45,9 @@ public class Waves : MonoBehaviour
         currentEnemiesPerSpawner = startingEnemiesPerSpawner + (currentWave - 1);
         if (currentWave % 5 == 0)
         {
-            currentEnemiesPerSpawner++;
-            currentEnemyHealth++;
+
+            currentEnemiesPerSpawner+=2;
+            currentEnemyHealth+=2;
         }
 
         // Spawn enemies across all spawners

@@ -124,9 +124,11 @@ public class turretScript : MonoBehaviour
         {
             case turretType.smallTurret:
                 projectile.currentProjectile = projectileType.smallProjectile;
+                damage = 3;
                 break;
             case turretType.bigTurret:
                 projectile.currentProjectile = projectileType.Rocket;
+                damage = 10;
                 break;
         }
         if (projectile != null)
