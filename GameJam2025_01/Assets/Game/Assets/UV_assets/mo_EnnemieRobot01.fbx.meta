@@ -3,7 +3,12 @@ guid: 12762264e0ac151408d0e2ccc32d061d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scn_Robot_m_weapon
+    second: {fileID: 2100000, guid: ebeed94578ee3ea4b8e88faecfcf3328, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
