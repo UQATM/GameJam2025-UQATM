@@ -74,6 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca18d24deda8ade408f3d0812c1a9692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 100
+  damage: 500
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 524288
+  missileBody: {fileID: 7391301909288022187}
 --- !u!1 &7073744792408714240
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +285,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e60afd7f4e12a418c35439a630b5c2, type: 3}
+--- !u!1 &7391301909288022187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 43e60afd7f4e12a418c35439a630b5c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7661260945410903546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7915354798041803281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 43e60afd7f4e12a418c35439a630b5c2,

@@ -39,12 +39,12 @@ public class Bullet : MonoBehaviour
             switch (this.transform.tag)
             {
                 case "Grenade":
-                {
-                        obstacle.pointsDeVie += 10;
+                    {
+                        obstacle.AddPtsVie(10);
+                        break;
+                    }
+                default:
                     break;
-                }
-            default:
-                break;
             }
         }
     }

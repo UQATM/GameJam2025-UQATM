@@ -131,11 +131,13 @@ public class Projectile : MonoBehaviour
         //enemie lose hp logic
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Enemy")
+        Debug.Log("Collision projectile");
+        if (collision.gameObject.tag == "Enemy")
         {
-            HitTarget(other.gameObject);
+            Debug.Log("Ennemy hit");
+            HitTarget(collision.gameObject);
         }
     }
 }

@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class MissileMortier : MonoBehaviour
 {
+    [SerializeField] float radius;
+    [SerializeField] int damage;
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] GameObject missileBody;
+
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -25,6 +30,35 @@ public class MissileMortier : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        Destroy(missileBody);
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        Camera cam = GetComponentInChildren<Camera>();
+        //cam.gameObject.SetActive(false);
+        ExplosionMissile();
+    }
+
+    void ExplosionMissile()
+    {
+        Vector3 explosionPosition = transform.position;
+
+        // Find all colliders in the explosion radius
+        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, radius, layerMask);
+
+        if (hitColliders.Length > 0)
+        {
+
+            foreach (Collider hit in hitColliders)
+            {
+                Debug.Log(hit.gameObject.name);
+                hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            }
+        }
+        else
+        {
+            Debug.Log("No targets in blast radius.");
+        }
+
+        Destroy(gameObject, 5f);
     }
 }

@@ -53,18 +53,9 @@ public class TankCannon : MonoBehaviour
 
     private void Awake()
     {
-        r = Instantiate(_reticle, gCannonEnd.transform.position, Quaternion.identity);
-        Renderer renderer = r.GetComponent<Renderer>();
-        renderer.material.color = UnityEngine.Color.green;
-
-        c = Instantiate(_reticle, gCannonEnd.transform.position, Quaternion.identity);
-        Renderer rendererC = c.GetComponent<Renderer>();
-        rendererC.material.color = UnityEngine.Color.green;
-
-        m = Instantiate(_reticle, gCannonEnd.transform.position, Quaternion.identity);
-        Renderer rendererM = m.GetComponent<Renderer>();
-        rendererM.material.color = UnityEngine.Color.green;
+        CreerReticule();
     }
+
     private void Update()
     {
         if (playerManager.getActiveState() == GestionnaireJoueur.State.tank)
@@ -103,7 +94,7 @@ public class TankCannon : MonoBehaviour
                 Destroy(b, 10f);
             }
 
-            if(Input.GetKeyDown(playerManager.getKeybinds().ReparationTank) && !isCooldownG)
+            if (Input.GetKeyDown(playerManager.getKeybinds().ReparationTank) && !isCooldownG)
             {
                 GameObject g = Instantiate(_bulletG, gCannonEnd.transform.position, gCannonEnd.transform.rotation);
                 g.GetComponent<Rigidbody>().AddForce(gCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
@@ -117,16 +108,36 @@ public class TankCannon : MonoBehaviour
                 Destroy(g, 10f);
             }
 
-            posR = new Vector3(mCannonEnd.transform.position.x, mCannonEnd.transform.position.y + 0.4f, mCannonEnd.transform.position.z - 0.2f);
-            r.transform.position = posR;
-
-            posM = new Vector3(mCannonEnd.transform.position.x + 0.3f, mCannonEnd.transform.position.y + 0.4f, mCannonEnd.transform.position.z - 0.2f);
-            m.transform.position = posM;
-
-            posC = new Vector3(mCannonEnd.transform.position.x - 0.3f, mCannonEnd.transform.position.y + 0.4f, mCannonEnd.transform.position.z - 0.2f);
-            c.transform.position = posC;
+            UpdatePositionReticule();
         }
     }
+
+
+    void CreerReticule()
+    {
+        c = Instantiate(_reticle, cCannonEnd.transform.position, Quaternion.identity);
+        c.transform.parent = transform;
+    }
+
+    void UpdatePositionReticule()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(cCannonEnd.transform.position, cCannonEnd.transform.forward);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if(c == null)
+            {
+                return;
+            }else
+            {
+                Vector3 newPosition = hit.point;
+                c.transform.position = newPosition;
+                c.transform.rotation = cCannonEnd.transform.rotation;
+            }
+        }
+    }
+
 
     public IEnumerator CoolDownCannon()
     {
