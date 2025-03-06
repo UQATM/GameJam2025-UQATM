@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum TypeObstacle
 {
@@ -12,6 +13,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private TypeObstacle typeObstacle;
     [SerializeField] int pointsDeVie;
     [SerializeField] int pvMax;
+    [SerializeField] Image healthBar;
+
+    float hpPercentage;
 
     private void Start()
     {
@@ -34,6 +38,10 @@ public class Obstacle : MonoBehaviour
                 pvMax = 10;
                 break;
         }
+
+        hpPercentage = (float)pointsDeVie / (float)pvMax;
+        Debug.Log(pointsDeVie + " " + pvMax + " " + hpPercentage);
+        Debug.Log(pointsDeVie + "/" + pvMax + "=" + pointsDeVie/pvMax);
     }
 
     public void AddPtsVie(int _nbrPV)
@@ -43,6 +51,10 @@ public class Obstacle : MonoBehaviour
         {
             pointsDeVie = pvMax;
         }
+        hpPercentage = (float)pointsDeVie / (float)pvMax;
+        Debug.Log(pointsDeVie + " " + pvMax + " " + hpPercentage);
+        Debug.Log(pointsDeVie + "/" + pvMax + "=" + pointsDeVie/pvMax);
+        healthBar.fillAmount = hpPercentage;
         Debug.Log(_nbrPV + " pv ont été ajouté");
     }
 
@@ -84,5 +96,9 @@ public class Obstacle : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        hpPercentage = (float)pointsDeVie / (float)pvMax;
+        Debug.Log(pointsDeVie + " " + pvMax + " " + hpPercentage);
+        Debug.Log(pointsDeVie + "/" + pvMax + "=" + pointsDeVie/pvMax);
+        healthBar.fillAmount = hpPercentage;
     }
 }
