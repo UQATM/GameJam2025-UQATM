@@ -25,6 +25,7 @@ public class Waves : MonoBehaviour
 
     private void Start()
     {
+        currentWave = 0;
         currentEnemiesPerSpawner = startingEnemiesPerSpawner;
         currentEnemyHealth = startingEnemyHealth;
         Invoke("StartNextWave", initialWaveDelay); // Initial 5-second delay
