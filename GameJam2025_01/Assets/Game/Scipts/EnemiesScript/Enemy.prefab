@@ -145,8 +145,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 8912650479594373785}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 10
+  m_Radius: 0.5
+  m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 300
@@ -184,3 +184,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 10
   currentEnemyHealth: 0
+  deathSound: {fileID: 8300000, guid: b0954c30c6ed0164899229e096074264, type: 3}

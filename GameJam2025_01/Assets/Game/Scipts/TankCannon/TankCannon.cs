@@ -35,7 +35,15 @@ public class TankCannon : MonoBehaviour
     private GameObject _reticle;
 
     [SerializeField]
-    private Camera cam;
+    AudioClip gunsound;
+
+    [SerializeField]
+    AudioClip cannonSound;
+
+    [SerializeField]
+    AudioClip grenadeSound;
+
+    private AudioSource _audio;
 
     public bool isCooldownC = false;
 
@@ -46,9 +54,11 @@ public class TankCannon : MonoBehaviour
     private GameObject c;
 
 
+
     private void Awake()
     {
         CreerReticule();
+        _audio = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -59,6 +69,7 @@ public class TankCannon : MonoBehaviour
             {
                 GameObject b = Instantiate(_bulletC, cCannonEnd.transform.position, cCannonEnd.transform.rotation);
                 b.GetComponent<Rigidbody>().AddForce(cCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+                _audio.PlayOneShot(cannonSound);
                 isCooldownC = true;
                 if (isCooldownC == true)
                 {
@@ -73,6 +84,7 @@ public class TankCannon : MonoBehaviour
 
                 GameObject b = Instantiate(_bulletM, MGCannon, mCannonEnd.transform.rotation);
                 b.GetComponent<Rigidbody>().AddForce(mCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+                _audio.PlayOneShot(gunsound);
                 ammoM--;
                 if (ammoM <= 0)
                 {
@@ -89,6 +101,7 @@ public class TankCannon : MonoBehaviour
             {
                 GameObject g = Instantiate(_bulletG, gCannonEnd.transform.position, gCannonEnd.transform.rotation);
                 g.GetComponent<Rigidbody>().AddForce(gCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+                _audio.PlayOneShot(grenadeSound);
                 isCooldownG = true;
                 if (isCooldownG == true)
                 {
