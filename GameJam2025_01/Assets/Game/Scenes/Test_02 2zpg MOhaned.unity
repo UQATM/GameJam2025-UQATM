@@ -137,6 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 1115006967}
     - target: {fileID: 1260076769937375999, guid: ecd07c149881c3945b558fdb4dbfddc9,
         type: 3}
+      propertyPath: baseGO
+      value: 
+      objectReference: {fileID: 1249905057}
+    - target: {fileID: 1260076769937375999, guid: ecd07c149881c3945b558fdb4dbfddc9,
+        type: 3}
       propertyPath: twoScript
       value: 
       objectReference: {fileID: 1598828876}
@@ -4826,6 +4831,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7927151068070902778, guid: ce33fb53f7a88164e99a28e3f19209af,
     type: 3}
   m_PrefabInstance: {fileID: 6570186155144358008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1249905057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4672673669604169276, guid: ecd07c149881c3945b558fdb4dbfddc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 882785}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1254723798
 GameObject:

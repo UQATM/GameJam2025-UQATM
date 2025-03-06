@@ -27,8 +27,18 @@ public class Boss : MonoBehaviour
         currentBoosHealth -= damage;
         Debug.Log("Boss took " + damage + " damage! Remaining health: " + currentBoosHealth);
 
-        // Die if health reaches 0 or below (or add any other condition if desired)
-        if (currentBoosHealth <= 0)
+        // Scale down by 1 unit on each axis, but clamp so no axis goes below 1
+        Vector3 currentScale = transform.localScale;
+        Vector3 newScale = new Vector3(
+            Mathf.Max(currentScale.x - 1f, 1f),
+            Mathf.Max(currentScale.y - 1f, 1f),
+            Mathf.Max(currentScale.z - 1f, 1f)
+        );
+        transform.localScale = newScale;
+        Debug.Log("Boss new scale: " + transform.localScale);
+
+        // Die if health is 0 or below, or if the boss has shrunk to a scale of 1 (on the x-axis)
+        if (currentBoosHealth <= 0 || transform.localScale.x <= 1f)
         {
             Die();
         }
@@ -49,6 +59,6 @@ public class Boss : MonoBehaviour
     // Call this from attack animations or trigger events
     public void PerformAttack()
     {
-        Debug.Log("Boss attacks for " + attackDamage + " damage!");
+        Debug.Log(gameObject.name + " attacks for " + attackDamage + " damage!");
     }
 }
