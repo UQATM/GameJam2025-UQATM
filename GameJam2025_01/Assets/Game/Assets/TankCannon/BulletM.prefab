@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.7604673, y: 0.9631283, z: -4.551203}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 832573956918251924}
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4ebbac0c0b7341ac5505194a91c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunDamage: 1
+  _grenadeDamage: 2
+  _cannonDamage: 3
 --- !u!1 &2788610190762195209
 GameObject:
   m_ObjectHideFlags: 0

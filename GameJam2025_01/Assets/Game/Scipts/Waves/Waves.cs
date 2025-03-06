@@ -14,7 +14,7 @@ public class Waves : MonoBehaviour
 
     [Header("Boss Settings")]
     [SerializeField] private GameObject bossPrefab;
-    [SerializeField] private int bossHealth = 30;
+    [SerializeField] private int bossHealth = 50;
     [SerializeField] private float bossSpawnDistance;
     [SerializeField] private float bossSpawnDelay;  // Delay before boss spawns each round
 

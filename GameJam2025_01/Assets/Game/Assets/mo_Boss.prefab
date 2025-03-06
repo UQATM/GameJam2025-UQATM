@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 548160970467194823}
   - component: {fileID: 6747856722894585838}
   - component: {fileID: 842417353058890361}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: BagBack_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2442728944959509924}
   - component: {fileID: 7123525695006530309}
   - component: {fileID: 1845209310738732657}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: bagback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7940549212909745460}
   - component: {fileID: 3229177229015969667}
   - component: {fileID: 8472668714559550817}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: -7773706768029076178}
   - component: {fileID: 5948206042622867378}
   - component: {fileID: 1486778421621069831}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: mo_Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoosHealth: 0
-  currentBoosHealth: 30
+  currentBoosHealth: 50
   attackDamage: 0
 --- !u!114 &1486778421621069831
 MonoBehaviour:
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 6249593255237110736}
   - component: {fileID: 4580988034324147720}
   - component: {fileID: 5531231031882790604}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 2818141159352154192}
   - component: {fileID: 4163131068047089429}
   - component: {fileID: 1546478933883169814}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
