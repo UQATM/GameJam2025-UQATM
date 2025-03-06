@@ -6,6 +6,7 @@ public class MissileMortier : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] LayerMask layerMask;
     [SerializeField] GameObject missileBody;
+    [SerializeField] GameObject noSignal;
 
     Rigidbody rb;
 
@@ -36,6 +37,7 @@ public class MissileMortier : MonoBehaviour
         Camera cam = GetComponentInChildren<Camera>();
         //cam.gameObject.SetActive(false);
         ExplosionMissile();
+        noSignal.SetActive(true);
     }
 
     void ExplosionMissile()
@@ -52,11 +54,8 @@ public class MissileMortier : MonoBehaviour
             {
                 Debug.Log(hit.gameObject.name);
                 hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                hit.gameObject.GetComponent<Boss>().TakeDamage(damage);
             }
-        }
-        else
-        {
-            Debug.Log("No targets in blast radius.");
         }
 
         Destroy(gameObject, 5f);
