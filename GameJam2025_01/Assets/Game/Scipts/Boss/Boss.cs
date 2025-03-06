@@ -3,9 +3,9 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private int BoosHealth = 30;
-    [SerializeField] public int currentBoosHealth;
-    [SerializeField] private int attackDamage = 50;
+     private int BoosHealth;
+     public int currentBoosHealth;
+     private int attackDamage;
 
     private int currentHealth;
     private Waves waveSystem;
