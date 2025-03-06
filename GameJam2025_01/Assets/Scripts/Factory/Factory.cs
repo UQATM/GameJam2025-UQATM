@@ -20,6 +20,8 @@ public class Factory : MonoBehaviour
     bool mortierReady = true;
     bool mortierShot = false;
 
+    public GameObject baseGO;
+
     enum FactoryMode
     {
         choixCadrant,
@@ -125,6 +127,10 @@ public class Factory : MonoBehaviour
                         }
                     }
                     camCadrantActif.SetActive(false);
+                    if(spawn == null)
+                    {
+                        spawn = baseGO;
+                    }
                     tank.transform.position = spawn.transform.position;
                     Cursor.lockState = CursorLockMode.Locked;
                 }
