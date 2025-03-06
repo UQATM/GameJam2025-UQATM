@@ -16,8 +16,6 @@ public class TankCannon : MonoBehaviour
     [SerializeField] GameObject mCannonEnd;
     [SerializeField] GameObject gCannonEnd;
 
-    GameObject _reticle;
-
     [SerializeField]
     private int cooldownTimeC = 10;
 
@@ -33,6 +31,11 @@ public class TankCannon : MonoBehaviour
     [SerializeField]
     GestionnaireJoueur playerManager;
 
+    [SerializeField]
+    private GameObject _reticle;
+
+    [SerializeField]
+    private Camera cam;
 
     public bool isCooldownC = false;
 
@@ -40,6 +43,16 @@ public class TankCannon : MonoBehaviour
 
     public bool isCooldownG = false;
 
+    private Vector3 pos;
+    private GameObject r;
+
+
+    private void Awake()
+    {
+        r = Instantiate(_reticle, gCannonEnd.transform.position, Quaternion.identity);
+        Renderer renderer = r.GetComponent<Renderer>();
+        renderer.material.color = UnityEngine.Color.red;
+    }
     private void Update()
     {
         if (playerManager.getActiveState() == GestionnaireJoueur.State.tank)
@@ -58,7 +71,9 @@ public class TankCannon : MonoBehaviour
 
             if (Input.GetKeyDown(playerManager.getKeybinds().TirPrincipalTank) && !isCooldownM)
             {
-                GameObject b = Instantiate(_bulletM, mCannonEnd.transform.position, mCannonEnd.transform.rotation);
+                Vector3 MGCannon = new Vector3(mCannonEnd.transform.position.x, mCannonEnd.transform.position.y + 0.1f, mCannonEnd.transform.position.z + 0.04f);
+
+                GameObject b = Instantiate(_bulletM, MGCannon, mCannonEnd.transform.rotation);
                 b.GetComponent<Rigidbody>().AddForce(mCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
                 ammoM--;
                 if (ammoM <= 0)
@@ -84,6 +99,8 @@ public class TankCannon : MonoBehaviour
                 Destroy(g, 10f);
             }
 
+            pos = new Vector3(mCannonEnd.transform.position.x, mCannonEnd.transform.position.y + 0.4f, mCannonEnd.transform.position.z - 0.2f);
+            r.transform.position = pos;
         }
     }
 

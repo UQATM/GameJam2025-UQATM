@@ -583,6 +583,9 @@ MonoBehaviour:
   cooldownTimeG: 3
   ammoM: 50
   playerManager: {fileID: 6958762370557602979}
+  _reticle: {fileID: 1166176010814636079, guid: 984a7c91913619543abbda41f269a52d,
+    type: 3}
+  cam: {fileID: 1284351385258259422}
   isCooldownC: 0
   isCooldownM: 0
   isCooldownG: 0
@@ -1297,6 +1300,7 @@ MonoBehaviour:
   canonEnd: {fileID: 706584585573281811}
   p_Missile: {fileID: 2491958674698711603, guid: 50c3d24fece361e479a368a0f88de864,
     type: 3}
+  twoScript: {fileID: 0}
 --- !u!1 &4695417496424244373
 GameObject:
   m_ObjectHideFlags: 0
