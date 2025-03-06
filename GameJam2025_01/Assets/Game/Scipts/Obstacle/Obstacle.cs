@@ -34,22 +34,20 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Instead of destroying the enemy instantly, deal 1 damage to it.
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
                 enemy.TakeDamage(200);
             }
             else
             {
-                Destroy(other.gameObject);
+                Destroy(collision.gameObject);
             }
 
-            // The obstacle loses 1 point of life.
             pointsDeVie--;
             if (pointsDeVie <= 0)
             {
@@ -57,5 +55,6 @@ public class Obstacle : MonoBehaviour
             }
         }
     }
+
 
 }
