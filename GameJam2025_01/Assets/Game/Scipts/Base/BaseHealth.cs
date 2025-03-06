@@ -94,7 +94,7 @@ public class BaseHealth : MonoBehaviour
                 Destroy(collision.gameObject);
             }
             Debug.Log("Base takes 50 damage from boss collision.");
-            TakeDamage(50);
+            TakeDamage(1);
         }
     }
 }
