@@ -52,11 +52,8 @@ public class MissileMortier : MonoBehaviour
             {
                 Debug.Log(hit.gameObject.name);
                 hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                hit.gameObject.GetComponent<Boss>().TakeDamage(damage);
             }
-        }
-        else
-        {
-            Debug.Log("No targets in blast radius.");
         }
 
         Destroy(gameObject, 5f);
