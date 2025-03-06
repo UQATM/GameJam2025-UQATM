@@ -7,12 +7,13 @@ public class WaveReached : MonoBehaviour
 {
     [SerializeField]
     private Text _wave;
+
+    private int _waveCounter = Waves.currentWave;
     void Start()
     {
-        Waves _waveCounter = GetComponent<Waves>();
-        if (_waveCounter != null)
+        if (_waveCounter != 0)
         {
-            _wave.text = _waveCounter.waveCounterText.ToString();
+            _wave.text = _waveCounter.ToString();
         }
         else
         {
