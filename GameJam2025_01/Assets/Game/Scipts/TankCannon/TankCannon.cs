@@ -75,7 +75,7 @@ public class TankCannon : MonoBehaviour
                 {
                     StartCoroutine(CoolDownCannon());
                 }
-                Destroy(b, 10f);
+                Destroy(b, 5f);
             }
 
             if (Input.GetKeyDown(playerManager.getKeybinds().TirPrincipalTank) && !isCooldownM)
@@ -94,7 +94,7 @@ public class TankCannon : MonoBehaviour
                 {
                     StartCoroutine(CoolDownMachineGun());
                 }
-                Destroy(b, 10f);
+                Destroy(b, 5f);
             }
 
             if (Input.GetKeyDown(playerManager.getKeybinds().ReparationTank) && !isCooldownG)
@@ -107,7 +107,7 @@ public class TankCannon : MonoBehaviour
                 {
                     StartCoroutine(CoolDownGrenade());
                 }
-                Destroy(g, 10f);
+                Destroy(g, 5f);
             }
 
             UpdatePositionReticule();
