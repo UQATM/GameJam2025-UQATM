@@ -92,8 +92,7 @@ public class Factory : MonoBehaviour
 
                         if (Input.GetKeyDown(keybinds.SwitchCamMortier) && mortierShot && camMissile)
                         {
-                            camMissile.SetActive(camTop.gameObject.activeSelf);
-                            camTop.gameObject.SetActive(!camMissile.activeSelf);
+                            camMissile.SetActive(!camMissile.activeSelf);
                         }
                         break;
                 }
