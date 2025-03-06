@@ -9,12 +9,12 @@ public class Quit : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
-    public void Play()
+    public void Rules()
     {
         SceneManager.LoadScene(1);
     }
-    public void Rules()
+
+    public void Play()
     {
         SceneManager.LoadScene(2);
     }
