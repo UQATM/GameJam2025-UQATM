@@ -109,10 +109,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ba8e54102c4bee4c85b24dafc42575d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7224564274999218585}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ba8e54102c4bee4c85b24dafc42575d,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 701315904147978989}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ba8e54102c4bee4c85b24dafc42575d,
         type: 3}
@@ -154,27 +150,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.871496
   m_Center: {x: 0, y: 1.371496, z: 0}
---- !u!135 &7224564274999218585
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6403008961620631035}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.3803754
-  m_Center: {x: 0, y: 1.8803754, z: 0}
 --- !u!54 &701315904147978989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -250,3 +225,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 10
   currentEnemyHealth: 0
+  deathSound: {fileID: 8300000, guid: b0954c30c6ed0164899229e096074264, type: 3}

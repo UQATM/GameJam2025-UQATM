@@ -66,12 +66,19 @@ public class Waves : MonoBehaviour
     public void OnEnemyKilled()
     {
         totalEnemiesAlive--;
-        if (totalEnemiesAlive <= 0)
+        Debug.Log("OnEnemyKilled called. Total remaining enemies: " + totalEnemiesAlive);
+        if(totalEnemiesAlive < 0)
         {
+            totalEnemiesAlive = 0;
+        }
+
+        if (totalEnemiesAlive == 0)
+       { 
             Debug.Log("Wave " + currentWave + " ended.");
             Invoke("StartNextWave", waveCooldown); // 5-second cooldown before next wave
         }
     }
+
 
     private void UpdateWaveCounter()
     {
