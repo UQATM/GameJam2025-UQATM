@@ -56898,7 +56898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoney: 0
-  startingMoney: 100
+  startingMoney: 4000
   numberOfTower: 0
 --- !u!114 &1598828875
 MonoBehaviour:

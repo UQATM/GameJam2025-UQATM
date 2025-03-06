@@ -66,7 +66,6 @@ public class Waves : MonoBehaviour
     public void OnEnemyKilled()
     {
         totalEnemiesAlive--;
-        Debug.Log("OnEnemyKilled called. Total remaining enemies: " + totalEnemiesAlive);
         if (totalEnemiesAlive <= 0)
         {
             Debug.Log("Wave " + currentWave + " ended.");

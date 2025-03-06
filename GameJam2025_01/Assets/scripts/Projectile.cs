@@ -112,9 +112,11 @@ public class Projectile : MonoBehaviour
                 else
                 {
                     hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-                }
+                
             }
         }
+        }
+
         else
         {
             Debug.Log("No targets in blast radius.");
