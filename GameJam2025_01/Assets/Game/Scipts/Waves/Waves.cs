@@ -18,13 +18,14 @@ public class Waves : MonoBehaviour
     [SerializeField] private float bossSpawnDistance;
     [SerializeField] private float bossSpawnDelay;  // Delay before boss spawns each round
 
-    private int currentWave = 0;
+    public static  int currentWave = 0;
     private int totalEnemiesAlive;
     private int currentEnemiesPerSpawner;
     private int currentEnemyHealth;
 
     private void Start()
     {
+        currentWave = 0;
         currentEnemiesPerSpawner = startingEnemiesPerSpawner;
         currentEnemyHealth = startingEnemyHealth;
         Invoke("StartNextWave", initialWaveDelay); // Initial 5-second delay

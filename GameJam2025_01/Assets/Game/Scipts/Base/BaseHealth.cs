@@ -45,7 +45,7 @@ public class BaseHealth : MonoBehaviour
         UpdateHealthBar();
 
         // This condition might be adjusted depending on your game logic.
-        if (currentHealth <= damage)
+        if (currentHealth <= 0)
         {
             Quit GameManager = new Quit();
             GameManager.GameOver();
