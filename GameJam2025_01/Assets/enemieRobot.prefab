@@ -250,3 +250,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 10
   currentEnemyHealth: 0
+  deathSound: {fileID: 8300000, guid: b0954c30c6ed0164899229e096074264, type: 3}
