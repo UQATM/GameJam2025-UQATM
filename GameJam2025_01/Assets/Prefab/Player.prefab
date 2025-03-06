@@ -586,7 +586,9 @@ MonoBehaviour:
   playerManager: {fileID: 6958762370557602979}
   _reticle: {fileID: 1166176010814636079, guid: 984a7c91913619543abbda41f269a52d,
     type: 3}
-  cam: {fileID: 0}
+  gunsound: {fileID: 8300000, guid: a9184fd46f93a9b4387f3cba9948a09a, type: 3}
+  cannonSound: {fileID: 8300000, guid: 4513e0ed0b8232d47bc24b0eef1cc10e, type: 3}
+  grenadeSound: {fileID: 8300000, guid: 217dac3bb04145a4c8f33175b9ef030b, type: 3}
   isCooldownC: 0
   isCooldownM: 0
   isCooldownG: 0
