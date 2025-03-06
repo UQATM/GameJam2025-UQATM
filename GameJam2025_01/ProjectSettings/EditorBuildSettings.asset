@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Rules.unity
     guid: 054e4a929e7f8054384f0d4526e0d452
   - enabled: 1
-    path: Assets/Game/Scenes/Test_02 2zpg MOhaned.unity
-    guid: 9102bb57905996a43bef6da9e9d98d5e
+    path: Assets/Game/Scenes/Test_02 2zpg MOAHNED.unity
+    guid: 82375d4e961deb146be4af2a710f2c69
   - enabled: 1
     path: Assets/Game/Scenes/GameOver.unity
     guid: 9d6d04465e7eacc4c8289e4a90e89414
