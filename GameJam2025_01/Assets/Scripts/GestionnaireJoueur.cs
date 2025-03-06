@@ -10,6 +10,7 @@ public class GestionnaireJoueur : MonoBehaviour
     [SerializeField] KeyCode reparationTank;
     [SerializeField] KeyCode mortarCanon;
     [SerializeField] KeyCode switchFactoryMode;
+    [SerializeField] KeyCode switchCamMortier;
 
     public struct Keybinds
     {
@@ -21,6 +22,7 @@ public class GestionnaireJoueur : MonoBehaviour
         public KeyCode ReparationTank;
         public KeyCode MortarCanon;
         public KeyCode SwitchFactoryMode;
+        public KeyCode SwitchCamMortier;
     }
 
     public enum State
@@ -64,7 +66,8 @@ public class GestionnaireJoueur : MonoBehaviour
             TirSecondaireTank = tirSecondaireTank,
             ReparationTank = reparationTank,
             MortarCanon = mortarCanon,
-            SwitchFactoryMode = switchFactoryMode
+            SwitchFactoryMode = switchFactoryMode,
+            SwitchCamMortier = switchCamMortier
         };
     }
 

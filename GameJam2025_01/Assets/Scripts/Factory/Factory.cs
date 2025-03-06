@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Factory : MonoBehaviour
@@ -6,11 +7,16 @@ public class Factory : MonoBehaviour
     [SerializeField] GameObject[] cadrants;
     [SerializeField] GestionnaireJoueur playerManager;
     [SerializeField] GameObject tank;
-    [SerializeField] Transform canonEnd;
     [SerializeField] GameObject p_Missile;
-    public two twoScript;
+    [SerializeField] GameObject canon;
+    [SerializeField] float vitesseMortier;
+    [SerializeField] float cooldownMortier;
+    [SerializeField] two twoScript;
     GameObject camCadrantActif;
     GestionnaireJoueur.Keybinds keybinds;
+    GameObject camMissile;
+    bool mortierReady = true;
+    bool mortierShot = false;
 
     enum FactoryMode
     {
@@ -74,12 +80,19 @@ public class Factory : MonoBehaviour
                             activeMode = FactoryMode.choixCadrant;
                         }
 
-                        if (Input.GetKeyDown(keybinds.MortarCanon))
+                        if (Input.GetKeyDown(keybinds.MortarCanon) && mortierReady)
                         {
                             Vector3 positionMouse = Input.mousePosition;
                             positionMouse.z = camTop.transform.position.y;
                             positionMouse = camTop.ScreenToWorldPoint(positionMouse);
                             TirMortier(positionMouse.x, positionMouse.z);
+                            mortierReady = false;
+                            StartCoroutine(CooldownMortier());
+                        }
+
+                        if (Input.GetKeyDown(keybinds.SwitchCamMortier) && mortierShot && camMissile)
+                        {
+                            camMissile.SetActive(!camMissile.activeSelf);
                         }
                         break;
                 }
@@ -114,24 +127,31 @@ public class Factory : MonoBehaviour
 
     void TirMortier(float _posX, float _posZ)
     {
-        Debug.Log("X: " + _posX + "; Z: " + _posZ);
-        Vector3 positionCible = new Vector3(_posX, 0, _posZ);
-        Vector3 positionInitial = canonEnd.position;
-
-        Vector3 direction = positionCible - positionInitial;
-        float distance = direction.magnitude;
+        Vector3 positionCible = new Vector3(_posX, 0f, _posZ);
+        Vector3 positionInitial = p_Missile.transform.position;
+        float distance = Vector3.Distance(positionInitial, positionCible);
 
         float differentielY = positionCible.y - positionInitial.y;
         float angleTir = 45f * Mathf.Deg2Rad;
 
-        float velociteInitial = Mathf.Sqrt(distance * Physics.gravity.magnitude / Mathf.Sin(2 * angleTir));
+        float velocityInitial = Mathf.Sqrt(distance * Physics.gravity.magnitude / Mathf.Sin(2 * angleTir));
+        float vx = velocityInitial * Mathf.Cos(angleTir);
+        float vy = velocityInitial * Mathf.Sin(angleTir);
 
-        float vx = velociteInitial * Mathf.Cos(angleTir);
-        float vy = velociteInitial * Mathf.Sin(angleTir);
-        float vz = velociteInitial * Mathf.Sin(angleTir);
+        GameObject missile = Instantiate(p_Missile, positionInitial, p_Missile.transform.rotation);
+        missile.transform.localScale = new Vector3(100f, 100f, 100f);
+        missile.SetActive(true);
+        Rigidbody rb = missile.GetComponent<Rigidbody>();
 
-        GameObject projectile = Instantiate(p_Missile, positionInitial, Quaternion.identity);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(vx, vy, vz);
+        Vector3 direction = (positionCible - positionInitial).normalized;
+        rb.velocity = new Vector3(vx * direction.x, vy, vx * direction.z);
+        camMissile = missile.GetComponentInChildren<Camera>(true).gameObject;
+        mortierShot = true;
+    }
+
+    IEnumerator CooldownMortier()
+    {
+        yield return new WaitForSeconds(cooldownMortier);
+        mortierReady = true;
     }
 }
