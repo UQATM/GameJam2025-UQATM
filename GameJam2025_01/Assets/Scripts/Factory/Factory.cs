@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Factory : MonoBehaviour
@@ -109,7 +111,21 @@ public class Factory : MonoBehaviour
                 {
                     playerManager.setActiveState(GestionnaireJoueur.State.tank);
                     tank.SetActive(true);
+                    GameObject spawnList = camCadrantActif.transform.GetChild(0).gameObject;
+                    int number = camCadrantActif.transform.childCount;
+                    GameObject spawn = null;
+                    for (int i = 0; i <= number; i++)
+                    {
+                        spawn = camCadrantActif.transform.GetChild(i).gameObject;
+                        GameObject obstacle = camCadrantActif.transform.GetChild(i).gameObject.GetComponent<findObstacleToSpawn>().obstacle;
+                        Debug.Log(obstacle);
+                        if (obstacle != null)
+                        {
+                            break;
+                        }
+                    }
                     camCadrantActif.SetActive(false);
+                    tank.transform.position = spawn.transform.position;
                     Cursor.lockState = CursorLockMode.Locked;
                 }
                 break;
