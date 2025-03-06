@@ -535,7 +535,7 @@ Transform:
   m_GameObject: {fileID: 2296290263197989022}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.1, y: -3.668, z: -62.9}
+  m_LocalPosition: {x: -1.92, y: -3.668, z: -62.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -554,10 +554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a250a04d33ba04f8e43d300de4c097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesseMax: 0.15
-  vitesseRotation: 2
-  acceleration: 0.05
-  deceleration: 0
+  vitesseMax: 15
+  vitesseRotation: 25
+  acceleration: 1.5
   head: {fileID: 8431778896912541451}
   canon: {fileID: 2748916786454925538}
   machineGun: {fileID: 7715208318017448427}
@@ -611,7 +610,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

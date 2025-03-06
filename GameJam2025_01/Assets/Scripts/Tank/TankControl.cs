@@ -5,12 +5,12 @@ public class TankControl : MonoBehaviour
     [SerializeField] float vitesseMax;
     [SerializeField] float vitesseRotation;
     [SerializeField] float acceleration;
-    [SerializeField] float deceleration;
     [SerializeField] Transform head;
     [SerializeField] Transform canon;
     [SerializeField] Transform machineGun;
     [SerializeField] float sensibilite;
     Transform root;
+    Rigidbody rb;
     float input;
     float vitesse = 0f;
     float rotation = 0f;
@@ -21,7 +21,8 @@ public class TankControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       root = gameObject.transform; 
+       root = gameObject.transform;
+       rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -57,8 +58,12 @@ public class TankControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        root.Translate(0, 0, vitesse);
-        root.Rotate(0, rotation, 0);
+        //root.Translate(0, 0, vitesse);
+        //root.Rotate(0, rotation, 0); 
+        Vector3 movement = transform.forward * vitesse * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + movement);
+        Quaternion turnRotation = Quaternion.Euler(0f, Input.GetAxis("Horizontal") * vitesseRotation * Time.fixedDeltaTime, 0f);
+        rb.MoveRotation(rb.rotation * turnRotation);
 
         head.localRotation = Quaternion.Euler(0, -rotationTeteX, 0f);
         canon.localRotation = Quaternion.Euler(rotationTeteY, 0f, 0f);
