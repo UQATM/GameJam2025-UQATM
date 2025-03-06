@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 public enum projectileType
 {
@@ -104,7 +105,14 @@ public class Projectile : MonoBehaviour
             foreach (Collider hit in hitColliders)
             {
                 Debug.Log(hit.gameObject.name);
-                hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                if(hit.gameObject.tag == "Boss")
+                {
+                    hit.gameObject.GetComponent<Boss>().TakeDamage(damage);
+                }
+                else
+                {
+                    hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                }
             }
         }
         else
@@ -127,14 +135,22 @@ public class Projectile : MonoBehaviour
     private void FireSmallProjectile(GameObject enemy)
     {
         Debug.Log("meow");
-        enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
+        
+        if (enemy.gameObject.tag == "Boss")
+        {
+            enemy.gameObject.GetComponent<Boss>().TakeDamage(damage);
+        }
+        else
+        {
+            enemy.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+        }
         //enemie lose hp logic
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision projectile");
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss")
         {
             Debug.Log("Ennemy hit");
             HitTarget(collision.gameObject);

@@ -174,7 +174,7 @@ public class turretScript : MonoBehaviour
         target.GetComponent<NavMeshAgent>().speed = 3;
 
         yield return new WaitForSeconds(slowTime);
-        target.GetComponent<NavMeshAgent>().speed = originalSpeed;
+        target.GetComponent<NavMeshAgent>().speed = 10;
         yield return null;
     }
     private void OnDrawGizmos()
