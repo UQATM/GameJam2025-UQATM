@@ -57,7 +57,7 @@ public class TankCannon : MonoBehaviour
 
     private void Awake()
     {
-        CreerReticule();
+        //CreerReticule();
         _audio = gameObject.AddComponent<AudioSource>();
     }
 
@@ -110,7 +110,7 @@ public class TankCannon : MonoBehaviour
                 Destroy(g, 5f);
             }
 
-            UpdatePositionReticule();
+            //UpdatePositionReticule();
         }
     }
 
