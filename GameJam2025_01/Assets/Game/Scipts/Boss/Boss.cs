@@ -16,12 +16,19 @@ public class Boss : MonoBehaviour
         Debug.Log("Boss spawned! Health: " + currentBoosHealth);
     }
 
+    public void SetHealth(int hp)
+    {
+        BoosHealth = hp;
+        currentBoosHealth = hp;
+    }
+
+
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentBoosHealth -= damage;
         Debug.Log("Boss took " + damage + " damage! Remaining health: " + currentBoosHealth);
 
-        if (currentHealth <= 0)
+        if (currentBoosHealth <= 0)
         {
             Die();
         }

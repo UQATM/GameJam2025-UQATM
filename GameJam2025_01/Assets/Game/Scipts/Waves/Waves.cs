@@ -12,6 +12,11 @@ public class Waves : MonoBehaviour
     [SerializeField] private float waveCooldown = 5f;
     [SerializeField] public TextMeshProUGUI waveCounterText;
 
+    [Header("Boss Settings")]
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private int bossHealth = 30;
+    [SerializeField] private float bossSpawnDistance = 3f;
+
     private int currentWave = 0;
     private int totalEnemiesAlive;
     private int currentEnemiesPerSpawner;
@@ -28,6 +33,7 @@ public class Waves : MonoBehaviour
     {
         currentWave++;
         UpdateWaveCounter();
+        SpawnBossAtRandomSpawner();
 
         // Calculate enemies and health for this wave
         currentEnemiesPerSpawner = startingEnemiesPerSpawner + (currentWave - 1);
@@ -43,6 +49,13 @@ public class Waves : MonoBehaviour
         {
             spawner.SpawnWave(currentEnemiesPerSpawner, currentEnemyHealth);
         }
+
+        // --- Added code for boss spawning ---
+        if (currentWave % 5 == 0)
+        {
+            //SpawnBossAtRandomSpawner();
+        }
+        // -------------------------------------
     }
 
     public void OnEnemyKilled()
@@ -59,4 +72,18 @@ public class Waves : MonoBehaviour
         if (waveCounterText != null)
             waveCounterText.text = $"Wave: {currentWave}";
     }
+
+    // --- Added method for boss spawning ---
+    private void SpawnBossAtRandomSpawner()
+    {
+        if (enemySpawners.Count == 0 || bossPrefab == null) return;
+
+        // Pick a random spawner from the list
+        int randomIndex = Random.Range(0, enemySpawners.Count);
+        enemySpawners[randomIndex].SpawnBoss(bossPrefab, bossHealth, bossSpawnDistance);
+
+        // Add the boss to the total enemy count
+        totalEnemiesAlive++;
+    }
+    // -----------------------------------------
 }
