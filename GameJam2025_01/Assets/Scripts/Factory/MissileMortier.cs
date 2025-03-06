@@ -6,6 +6,7 @@ public class MissileMortier : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] LayerMask layerMask;
     [SerializeField] GameObject missileBody;
+    [SerializeField] GameObject noSignal;
 
     Rigidbody rb;
 
@@ -36,6 +37,7 @@ public class MissileMortier : MonoBehaviour
         Camera cam = GetComponentInChildren<Camera>();
         //cam.gameObject.SetActive(false);
         ExplosionMissile();
+        noSignal.SetActive(true);
     }
 
     void ExplosionMissile()
