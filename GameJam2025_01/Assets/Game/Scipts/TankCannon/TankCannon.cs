@@ -68,7 +68,7 @@ public class TankCannon : MonoBehaviour
             if (Input.GetKeyDown(playerManager.getKeybinds().TirSecondaireTank) && !isCooldownC)
             {
                 GameObject b = Instantiate(_bulletC, cCannonEnd.transform.position, cCannonEnd.transform.rotation);
-                b.GetComponent<Rigidbody>().AddForce(cCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+                b.GetComponent<Rigidbody>().AddForce(cCannonEnd.transform.TransformDirection(Vector3.forward) * 30f, ForceMode.Impulse);
                 _audio.PlayOneShot(cannonSound);
                 isCooldownC = true;
                 if (isCooldownC == true)
@@ -83,7 +83,7 @@ public class TankCannon : MonoBehaviour
                 Vector3 MGCannon = new Vector3(mCannonEnd.transform.position.x, mCannonEnd.transform.position.y + 0.1f, mCannonEnd.transform.position.z + 0.04f);
 
                 GameObject b = Instantiate(_bulletM, MGCannon, mCannonEnd.transform.rotation);
-                b.GetComponent<Rigidbody>().AddForce(mCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+                b.GetComponent<Rigidbody>().AddForce(mCannonEnd.transform.TransformDirection(Vector3.forward) * 50f, ForceMode.Impulse);
                 _audio.PlayOneShot(gunsound);
                 ammoM--;
                 if (ammoM <= 0)
@@ -100,7 +100,7 @@ public class TankCannon : MonoBehaviour
             if (Input.GetKeyDown(playerManager.getKeybinds().ReparationTank) && !isCooldownG)
             {
                 GameObject g = Instantiate(_bulletG, gCannonEnd.transform.position, gCannonEnd.transform.rotation);
-                g.GetComponent<Rigidbody>().AddForce(gCannonEnd.transform.TransformDirection(Vector3.forward) * 25f, ForceMode.Impulse);
+                g.GetComponent<Rigidbody>().AddForce(gCannonEnd.transform.TransformDirection(Vector3.forward) * 30f, ForceMode.Impulse);
                 _audio.PlayOneShot(grenadeSound);
                 isCooldownG = true;
                 if (isCooldownG == true)
