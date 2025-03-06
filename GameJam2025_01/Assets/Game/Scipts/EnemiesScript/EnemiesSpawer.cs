@@ -41,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
+
     public void SpawnBoss(GameObject bossPrefab, int bossHealth, float bossSpawnDistance)
     {
         Vector3 spawnPos = transform.position + transform.forward * bossSpawnDistance;
@@ -62,5 +63,4 @@ public class EnemySpawner : MonoBehaviour
             pathScript.SetFinalTarget(finalTarget);
         }
     }
-
 }

@@ -44,6 +44,7 @@ public class BaseHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
 
+        // This condition might be adjusted depending on your game logic.
         if (currentHealth <= damage)
         {
             Quit GameManager = gameObject.GetComponent<Quit>();
@@ -62,20 +63,38 @@ public class BaseHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Instead of instantly destroying the enemy, deal 1 damage to it.
+            // Instead of instantly destroying the enemy, deal 200 damage to it.
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
+                Debug.Log("Enemy collided with base. Dealing 200 damage to enemy.");
                 enemy.TakeDamage(200);
             }
             else
             {
+                Debug.Log("Enemy collided with base but no EnemyHealth found. Destroying enemy.");
                 Destroy(collision.gameObject);
             }
 
-            // Also deal 1 damage to the base.
+            Debug.Log("Base takes 1 damage from enemy collision.");
             TakeDamage(1);
         }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            // When a Boss collides: The Boss takes 200 damage, and the Base takes 50 damage.
+            Boss boss = collision.gameObject.GetComponent<Boss>();
+            if (boss != null)
+            {
+                Debug.Log("Boss collided with base. Dealing 200 damage to boss.");
+                boss.TakeDamage(200);
+            }
+            else
+            {
+                Debug.Log("Boss collided with base but no Boss component found. Destroying boss.");
+                Destroy(collision.gameObject);
+            }
+            Debug.Log("Base takes 50 damage from boss collision.");
+            TakeDamage(50);
+        }
     }
-
 }

@@ -53,20 +53,16 @@ public class Obstacle : MonoBehaviour
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                Debug.Log("Obstacle collided with Enemy, dealing 200 damage.");
                 enemy.TakeDamage(200);
             }
             else
             {
-                Debug.Log("Obstacle collided with Enemy that has no EnemyHealth. Destroying object.");
                 Destroy(collision.gameObject);
             }
 
             pointsDeVie--;
-            Debug.Log("Obstacle lost 1 HP from Enemy collision. Remaining HP: " + pointsDeVie);
             if (pointsDeVie <= 0)
             {
-                Debug.Log("Obstacle destroyed after Enemy collision.");
                 Destroy(gameObject);
             }
         }
@@ -75,20 +71,16 @@ public class Obstacle : MonoBehaviour
             Boss boss = collision.gameObject.GetComponent<Boss>();
             if (boss != null)
             {
-                Debug.Log("Obstacle collided with Boss, dealing 20 damage to Boss.");
                 boss.TakeDamage(20);
             }
             else
             {
-                Debug.Log("Obstacle collided with Boss that has no Boss script. Destroying object.");
                 Destroy(collision.gameObject);
             }
 
-            Debug.Log("Boss inflicted 200 damage to the obstacle.");
             pointsDeVie -= 200;
             if (pointsDeVie <= 0)
             {
-                Debug.Log("Obstacle destroyed after Boss collision.");
                 Destroy(gameObject);
             }
         }

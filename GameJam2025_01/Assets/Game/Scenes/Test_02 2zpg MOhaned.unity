@@ -142,6 +142,11 @@ PrefabInstance:
       objectReference: {fileID: 1598828876}
     - target: {fileID: 2811972485381080068, guid: ecd07c149881c3945b558fdb4dbfddc9,
         type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811972485381080068, guid: ecd07c149881c3945b558fdb4dbfddc9,
+        type: 3}
       propertyPath: healthBarFill
       value: 
       objectReference: {fileID: 1115006967}
@@ -814,8 +819,9 @@ MonoBehaviour:
   waveCounterText: {fileID: 221560661}
   bossPrefab: {fileID: 7183045572600233147, guid: a7eb53522924389439c2dcc3fb968adc,
     type: 3}
-  bossHealth: 30
-  bossSpawnDistance: 3
+  bossHealth: 50
+  bossSpawnDistance: 5
+  bossSpawnDelay: 10
 --- !u!4 &85411890
 Transform:
   m_ObjectHideFlags: 0
