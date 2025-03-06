@@ -36,8 +36,8 @@ public class MissileMortier : MonoBehaviour
         rb.velocity = Vector3.zero;
         Camera cam = GetComponentInChildren<Camera>();
         //cam.gameObject.SetActive(false);
-        ExplosionMissile();
         noSignal.SetActive(true);
+        ExplosionMissile();
     }
 
     void ExplosionMissile()
@@ -53,8 +53,16 @@ public class MissileMortier : MonoBehaviour
             foreach (Collider hit in hitColliders)
             {
                 Debug.Log(hit.gameObject.name);
-                hit.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-                hit.gameObject.GetComponent<Boss>().TakeDamage(damage);
+                EnemyHealth ennemy = hit.gameObject.GetComponent<EnemyHealth>();
+                Boss boss = hit.gameObject.GetComponent<Boss>();
+
+                if(ennemy != null){
+                    ennemy.TakeDamage(damage);
+                }
+                if(boss != null)
+                {
+                    boss.TakeDamage(damage);
+                }
             }
         }
 
