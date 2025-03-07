@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingEnemiesPerSpawner: 5
-  startingEnemyHealth: 1
+  startingEnemyHealth: 5
   enemySpawners:
   - {fileID: 49202095}
   - {fileID: 1146351709}
@@ -3146,6 +3146,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3195,6 +3200,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3701,6 +3731,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3750,6 +3785,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4201,6 +4261,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4250,6 +4315,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9587,6 +9677,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9636,6 +9731,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15462,6 +15582,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15511,6 +15636,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17596,6 +17746,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17645,6 +17800,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20401,6 +20581,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20450,6 +20635,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20813,6 +21023,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20862,6 +21077,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22078,6 +22318,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22127,6 +22372,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24544,6 +24814,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24593,6 +24868,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26298,6 +26598,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26347,6 +26652,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27954,6 +28284,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28003,6 +28338,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28355,6 +28715,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28404,6 +28769,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28722,6 +29112,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28771,6 +29166,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34280,6 +34700,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34329,6 +34754,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36415,6 +36865,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36464,6 +36919,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38047,6 +38527,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38096,6 +38581,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40580,6 +41090,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40629,6 +41144,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44656,6 +45196,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44705,6 +45250,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46841,6 +47411,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46890,6 +47465,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55576,7 +56176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoney: 0
-  startingMoney: 4000
+  startingMoney: 100
   numberOfTower: 0
 --- !u!114 &1598828875
 MonoBehaviour:
@@ -59590,6 +60190,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -59639,6 +60244,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60132,6 +60762,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60181,6 +60816,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60381,6 +61041,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60430,6 +61095,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64619,6 +65309,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -64668,6 +65363,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66210,6 +66930,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66260,6 +66985,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66289,6 +67039,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66338,6 +67093,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69844,6 +70624,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69893,6 +70678,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71164,6 +71974,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71213,6 +72028,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71781,6 +72621,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71830,6 +72675,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72359,6 +73229,11 @@ PrefabInstance:
       propertyPath: turretBuildScript
       value: 
       objectReference: {fileID: 1598828875}
+    - target: {fileID: 5993659112384730191, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8207815980169879516, guid: 868a238f77a6879449b91a6f0eb7346d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72408,6 +73283,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586010297051261724, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785944331022702227, guid: 868a238f77a6879449b91a6f0eb7346d,
+        type: 3}
+      propertyPath: damage
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

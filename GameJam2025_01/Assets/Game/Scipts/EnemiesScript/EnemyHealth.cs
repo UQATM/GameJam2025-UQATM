@@ -6,10 +6,15 @@ public class EnemyHealth : MonoBehaviour
     public int currentEnemyHealth; 
     private Waves waveSystem;
     private AudioSource _audio;
-    
+    private economyBase economy;
+
     [SerializeField]
     AudioClip deathSound;
 
+    private void Start()
+    {
+        economy = FindObjectOfType<economyBase>();
+    }
     public void SetHealth(int hp)
     {
         enemyHealth = hp;
@@ -32,6 +37,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (economy != null)
+            economy.OnEnemyKilled();
+
         _audio = gameObject.AddComponent<AudioSource>();
         if (waveSystem != null)
             waveSystem.OnEnemyKilled();

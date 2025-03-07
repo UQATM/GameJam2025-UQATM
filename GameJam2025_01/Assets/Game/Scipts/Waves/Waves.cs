@@ -38,16 +38,17 @@ public class Waves : MonoBehaviour
     public void StartNextWave()
     {
         currentWave++;
+        bossHealth += 10; 
         Debug.Log("Wave " + currentWave + " started.");
         UpdateWaveCounter();
+        Debug.Log($"Wave {currentWave}: Spawning {totalEnemiesAlive} enemies with {currentEnemyHealth} health each.");
 
         // Calculate enemies and health for this wave
         currentEnemiesPerSpawner = startingEnemiesPerSpawner + (currentWave - 1);
         if (currentWave % 5 == 0)
         {
-
-            currentEnemiesPerSpawner+=2;
-            currentEnemyHealth+=2;
+            currentEnemiesPerSpawner += 5;
+            currentEnemyHealth += 2;
         }
 
         // Spawn enemies across all spawners
@@ -59,7 +60,6 @@ public class Waves : MonoBehaviour
         }
 
         // Spawn the boss every round, after a delay so it appears near the end of the round.
-        // The boss IS counted in the totalEnemiesAlive.
         Invoke("SpawnBossAtRandomSpawner", bossSpawnDelay);
     }
 
@@ -68,18 +68,17 @@ public class Waves : MonoBehaviour
     {
         totalEnemiesAlive--;
         Debug.Log("OnEnemyKilled called. Total remaining enemies: " + totalEnemiesAlive);
-        if(totalEnemiesAlive < 0)
+        if (totalEnemiesAlive < 0)
         {
             totalEnemiesAlive = 0;
         }
 
         if (totalEnemiesAlive == 0)
-       { 
+        {
             Debug.Log("Wave " + currentWave + " ended.");
             Invoke("StartNextWave", waveCooldown); // 5-second cooldown before next wave
         }
     }
-
 
     private void UpdateWaveCounter()
     {
@@ -96,8 +95,6 @@ public class Waves : MonoBehaviour
         int randomIndex = Random.Range(0, enemySpawners.Count);
         enemySpawners[randomIndex].SpawnBoss(bossPrefab, bossHealth, bossSpawnDistance);
 
-        // Boss is now counted in the enemy count so that the wave doesn't finish until the boss dies.
-        //totalEnemiesAlive++;
         Debug.Log("Boss spawned at spawner index " + randomIndex + ". Total enemies now: " + totalEnemiesAlive);
     }
 }

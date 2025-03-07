@@ -6,6 +6,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private int BoosHealth; // Maximum boss health
     public int currentBoosHealth;           // Current boss health
     [SerializeField] private int attackDamage = 50;
+    private economyBase economy;
 
     private Waves waveSystem;
 
@@ -13,6 +14,7 @@ public class Boss : MonoBehaviour
     {
         currentBoosHealth = BoosHealth;
         Debug.Log("Boss spawned! Health: " + currentBoosHealth);
+        economy = FindObjectOfType<economyBase>();
     }
 
     public void SetHealth(int hp)
@@ -38,7 +40,7 @@ public class Boss : MonoBehaviour
         Debug.Log("Boss new scale: " + transform.localScale);
 
         // Die if health is 0 or below, or if the boss has shrunk to a scale of 1 (on the x-axis)
-        if (currentBoosHealth <= 0 || transform.localScale.x <= 1f)
+        if (currentBoosHealth <= 0)
         {
             Die();
         }
@@ -48,6 +50,8 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
         // Do not call waveSystem.OnEnemyKilled() here so that the boss isn't counted in the wave enemy count.
+        if (economy != null)
+            economy.OnBossKilled();
         Destroy(gameObject);
     }
 
